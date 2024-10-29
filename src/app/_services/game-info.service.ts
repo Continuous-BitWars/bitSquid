@@ -8,7 +8,7 @@ import {timer} from "rxjs"
 })
 export class GameInfoService {
   data = signal<GameInfo[]>([]);
-
+  currentGameInfo = signal<GameInfo | undefined>(undefined)
   timer = timer(0, 1000)
 
   constructor() {
