@@ -1,0 +1,75 @@
+.video-controls {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px;
+
+  .playback-controls,
+  .right-controls {
+    display: flex;
+    align-items: center;
+  }
+
+  .playback-controls .btn,
+  .right-controls .btn,
+  .quality-select {
+    font-size: 24px;
+    height: 48px;
+    background: #f8f9fa;
+    border: none;
+    border-radius: 4px;
+    color: #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .playback-controls .btn:hover,
+  .right-controls .btn:hover {
+    background: #e0e0e0;
+    color: #0056b3;
+  }
+
+  .tick-display {
+    font-size: 14px;
+    color: #666;
+    width: 70px;
+    text-align: center;
+    padding: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  .quality-select {
+    width: 140px;
+    height: 48px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: #ffffff;
+    padding: 4px 12px;
+    font-size: 20px;
+    color: #333;
+    transition: border-color 0.3s;
+  }
+
+  .quality-select:hover,
+  .quality-select:focus {
+    border-color: #007bff;
+  }
+
+  /* Responsive adjustments for smaller screens */
+  @media (max-width: 767.98px) {
+    .playback-controls,
+    .right-controls {
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tick-display,
+    .quality-select {
+      width: 100px;
+    }
+  }
+}
