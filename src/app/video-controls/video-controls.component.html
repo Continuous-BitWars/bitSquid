@@ -34,7 +34,7 @@
         type="range"
         class="form-range progress-slider"
         min="0"
-        [max]="gameTickService.currentGameStates.length"
+        [max]="gameTickService.currentGameStates.length-1"
         [value]="gameTickService.currentGameTickIndex()"
         (change)="onManualTickChange($event)"
       />

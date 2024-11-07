@@ -4,16 +4,16 @@ import {GameTickService} from './game-tick.service';
 import {WEB_SOCKET_URL} from '../config';
 import {interval, Subscription} from 'rxjs';
 import {Update} from '../_models/communication/update';
-import {MessageEvent, WebSocket} from 'ws';
+import {WebSocketSubscription} from '../_models/communication/WebSocketSubscription'
 
 @Injectable({
   providedIn: 'root'
 })
 export class WebsocketService {
 
-  webSocket: WebSocket;
+  webSocket?: WebSocket;
   currentGameId: number = 0;
-  pingPongSubscription: Subscription
+  pingPongSubscription?: Subscription
 
 
   constructor(private gameInfoService: GameInfoService, private gameTickService: GameTickService) {
@@ -27,7 +27,9 @@ export class WebsocketService {
     this.webSocket.onopen = (): void => {
       console.log("wss connected")
       this.pingPongSubscription = interval(5000).subscribe(value => {
-        this.webSocket.send(JSON.stringify(<Subscription>{topic: "Ping", message: ""}));
+        if (this.webSocket != undefined) {
+          this.webSocket.send(JSON.stringify(<WebSocketSubscription>{topic: "Ping", message: ""}));
+        }
       })
     };
 
@@ -35,7 +37,9 @@ export class WebsocketService {
 
     this.webSocket.onclose = (): void => {
       console.log("wss disconnected")
-      this.pingPongSubscription.unsubscribe()
+      if (this.pingPongSubscription != undefined) {
+        this.pingPongSubscription.unsubscribe()
+      }
       this.setupWebSocket(webSocketURL);
     }
   }
@@ -51,10 +55,14 @@ export class WebsocketService {
 
   private switchTarget(from: string, to: string): void {
     if (from != "game_0") {
-      this.webSocket.send(JSON.stringify(<Subscription>{topic: from, message: "unsubscribe"}));
+      if (this.webSocket != undefined) {
+        this.webSocket.send(JSON.stringify(<WebSocketSubscription>{topic: from, message: "unsubscribe"}));
+      }
     }
     if (to != "game_0") {
-      this.webSocket.send(JSON.stringify(<Subscription>{topic: to, message: "subscribe"}));
+      if (this.webSocket != undefined) {
+        this.webSocket.send(JSON.stringify(<WebSocketSubscription>{topic: to, message: "subscribe"}));
+      }
     }
   }
 
