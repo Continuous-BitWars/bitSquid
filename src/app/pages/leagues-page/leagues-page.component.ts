@@ -18,7 +18,6 @@ export class LeaguesPageComponent {
   visibilityState: { [key: number]: { players: boolean, maps: boolean } } = {}; // New state for visibility
 
   constructor(private leagueInfoService: LeagueInfoService) {
-    // Use effect to initialize games list and log it
     effect(() => {
       this.games = this.leagueInfoService.data();
       console.log('Games data loaded:', this.games); // Log games data

@@ -17,7 +17,6 @@ export class MapsPageComponent {
   
 
   constructor(private leagueInfoService: MapInfoService) {
-    // Use effect to initialize games list and log it
     effect(() => {
       this.games = this.leagueInfoService.data();
       console.log('Games data loaded:', this.games); // Log games data
