@@ -1,0 +1,74 @@
+<div class="video-controls bg-white border rounded p-2">
+  <div class="d-flex flex-column flex-md-row align-items-center">
+    <!-- Playback Controls (Left) -->
+    <div class="btn-group playback-controls me-md-3 mb-3 mb-md-0" role="group" aria-label="Playback controls">
+      <button type="button" class="btn btn-light btn-lg"
+              [class.bg-primary]="gameTickService.currentMode == ModeEnum.PLAY_BACKWARD"
+              (click)="setGameTickMode(ModeEnum.PLAY_BACKWARD)">
+        <i class="fas fa-backward"></i>
+      </button>
+
+      <button type="button" class="btn btn-light btn-lg"
+              [class.bg-primary]="gameTickService.currentMode == ModeEnum.PAUSE"
+              (click)="setGameTickMode(ModeEnum.PAUSE)">
+        <i class="fas fa-pause"></i>
+      </button>
+
+      <button type="button" class="btn btn-light btn-lg"
+              [class.bg-primary]="gameTickService.currentMode == ModeEnum.PLAY_FORWARD"
+              (click)="setGameTickMode(ModeEnum.PLAY_FORWARD)">
+        <i class="fas fa-forward"></i>
+      </button>
+
+      <button type="button" class="btn btn-light btn-lg"
+              [class.bg-primary]="gameTickService.currentMode == ModeEnum.LIVE"
+              (click)="setGameTickMode(ModeEnum.LIVE)">
+
+        <i class="fas fa-broadcast-tower"></i>
+      </button>
+    </div>
+
+    <!-- Progress Slider (Middle) -->
+    <div class="flex-grow-1 mx-md-3 mb-3 mb-md-0">
+      <input
+        type="range"
+        class="form-range progress-slider"
+        min="0"
+        [max]="gameTickService.currentGameStates.length-1"
+        [value]="gameTickService.currentGameTickIndex()"
+        (change)="onManualTickChange($event)"
+      />
+    </div>
+
+    <!-- Right Controls -->
+    <div class="d-flex align-items-center right-controls flex-wrap justify-content-center">
+      <input
+        type="number"
+        class="form-control tick-display me-3 mb-3 mb-md-0"
+        [max]="gameTickService.currentGameStates.length"
+        [value]="gameTickService.currentGameTickIndex()"
+        (change)="onManualTickChange($event)"
+        min="0"
+      />
+
+      <button class="btn btn-outline-secondary camera-button me-2 mb-3 mb-md-0" type="button">
+        <i class="fas fa-video me-1"></i>
+        <i class="fa-solid fa-plus"></i>
+      </button>
+
+      <select
+        class="form-select quality-select me-2 mb-3 mb-md-0"
+        [(ngModel)]="quality"
+        (change)="onQualityChange($event)"
+      >
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+
+      <button class="btn btn-light external-link" type="button">
+        <i class="fa-solid fa-share-nodes"></i>
+      </button>
+    </div>
+  </div>
+</div>

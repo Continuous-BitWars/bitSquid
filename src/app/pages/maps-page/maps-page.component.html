@@ -1,0 +1,17 @@
+<div class="container" *ngIf="games.length > 0; else noData">
+    <h2 class="title">Maps</h2>
+    <ul class="league-list">
+      <li class="league-item" *ngFor="let map of games" (click)="gameClick(map)">
+        <div class="league-header">
+          <h3>{{ map.name }}</h3>
+          <p>Provider URL: <a [href]="map.provider_url" target="_blank">{{ map.provider_url }}</a></p>
+          <p>Max Players: {{ map.max_player_count }}</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noData>
+    <p>No maps available.</p>
+  </ng-template>
+  

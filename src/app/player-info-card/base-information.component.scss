@@ -1,0 +1,63 @@
+.player-info-card {
+  width: 100%; /* Full width */
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  position: relative;
+}
+
+.player-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #000000;
+  background: linear-gradient(to bottom, var(--player-color), rgb(255, 255, 255) 75%, transparent 100%);
+}
+
+/* Player ID box */
+.player-id {
+  background-color: #ffffff;
+  color: #000000;
+  min-width: 60px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5em;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+/* Player Name */
+.player-name {
+  flex-grow: 1;
+}
+
+/* Base Name below Player Name */
+.base-name {
+  font-size: 0.9em;
+  color: #000000;
+}
+
+/* Coordinates */
+.player-coordinates {
+  font-size: 0.8em;
+  text-align: right;
+}
+
+/* Player Stats */
+.player-stats {
+  background-color: rgba(255, 255, 255, 0.8); /* Dark background for readability */
+  padding: 10px;
+  font-size: 1em;
+  color: #000000;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.player-stats strong {
+  font-weight: bold;
+  color: #000000;
+}

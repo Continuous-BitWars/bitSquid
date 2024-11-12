@@ -1,0 +1,17 @@
+<div class="container" *ngIf="games.length > 0; else noData">
+    <h2 class="title">Players</h2>
+    <ul class="league-list">
+      <li class="league-item" *ngFor="let player of games" (click)="gameClick(player)">
+        <div class="league-header">
+          <h3>{{ player.name }}</h3>
+          <p>Provider URL: <a [href]="player.provider_url" target="_blank">{{ player.provider_url }}</a></p>
+          <p>Color: <span [style.color]="player.color">{{ player.color }}</span></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noData>
+    <p>No players available.</p>
+  </ng-template>
+  

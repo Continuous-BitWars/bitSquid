@@ -1,5 +1,6 @@
 import { Component, input , Input} from '@angular/core';
 import {IGame} from '../../model/interface/game'
+import { GameInfoService } from '../../_services/game-info.service';
 
 @Component({
   selector: 'app-game-box',

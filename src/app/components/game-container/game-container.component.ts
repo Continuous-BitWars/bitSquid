@@ -1,9 +1,10 @@
-import { Component , Input,Output} from '@angular/core';
+import { Component , Input,OnInit,Output} from '@angular/core';
 import {IGame} from '../../model/interface/game'
 import { GameBoxComponent } from '../game-box/game-box.component';
 import { CommonModule } from '@angular/common';
 import { EventEmitter } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { GameInfoService } from '../../_services/game-info.service';
 @Component({
   selector: 'app-game-container',
   standalone: true,
@@ -11,7 +12,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './game-container.component.html',
   styleUrl: './game-container.component.css'
 })
-export class GameContainerComponent {
+export class GameContainerComponent implements OnInit{
   @Input() title: string = 'Default Title';
   @Input() borderColor: string = 'black';
   @Input() gamesArray: IGame[] = [];
@@ -28,6 +29,7 @@ export class GameContainerComponent {
   ngOnInit(): void {
     //alert('Hi');
     this.filterGameType();
+   
   }
 
   filterGameType(){
@@ -35,5 +37,5 @@ export class GameContainerComponent {
   }
   
 
-  
+   
 }

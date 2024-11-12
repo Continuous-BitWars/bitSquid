@@ -1,0 +1,125 @@
+/* Arrow container with UUID and Units text */
+.arrow-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+}
+
+/* Styling for UUID text above arrow */
+.arrow-text.arrow-top {
+  font-size: 1.2em;
+  color: #ff0000;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap; /* Prevents line breaks */
+  overflow: hidden; /* Ensures long text doesn’t overflow */
+  text-overflow: ellipsis; /* Adds ellipsis (...) if UUID is too long */
+  margin-bottom: 5px; /* Spacing between UUID and arrow */
+}
+
+/* Arrow styling */
+.arrow {
+  font-size: 3em;
+  color: #000000;
+}
+
+/* Styling for Units text below arrow */
+.arrow-text.arrow-bottom {
+  font-size: 1.2em;
+  color: #ff0000;
+  font-weight: 500;
+  text-align: center;
+  margin-top: 5px; /* Spacing between arrow and units */
+}
+
+
+/* Text positioning for Units */
+.arrow-text.arrow-bottom {
+  font-size: 1.2em;
+  color: #ff0000;
+  font-weight: 500;
+}
+
+.bg-color-src {
+  background: linear-gradient(90deg, var(--player-color, #4caf50) 0%, white 90%);
+}
+
+.bg-color-dest {
+  background: linear-gradient(90deg, white 10%, var(--player-color, #4caf50) 100%);
+}
+
+.bg-all {
+
+}
+
+/* UUID Gradient Background */
+/* UUID Background with Gradient */
+/* UUID Background with Extended White Gradient in the Middle */
+.uuid-color {
+  font-size: 1.3em;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.5em 1em;
+
+  /* Gradient background with extended white in the center */
+  background: linear-gradient(90deg,
+    var(--src-color, #4caf50) 0%, /* Start with source color */
+    var(--src-color, #4caf50) 1%, /* Source color fades by 20% */
+    white 30%, /* Start white transition earlier */
+    white 70%, /* Extend white section until 60% */
+    var(--dest-color, #ff5722) 99%, /* Start destination color */
+    var(--dest-color, #ff5722) 100% /* End with destination color */
+  );
+  /* Optional: Rounding for a smoother look */
+  color: #ff0000; /* Set text color to contrast with background */
+}
+
+
+.base-id,
+.player-id,
+.action-id {
+  font-size: 1.1em; /* Increased font size */
+  font-weight: bold; /* Makes the text stand out */
+  color: #333333; /* Darker shade for better contrast */
+  text-align: center; /* Center-align text for uniformity */
+}
+
+/* Progress Bar Styling */
+.progress-bar {
+  background-color: #e0e0e0; /* Background color of the entire progress bar */
+  border-radius: 10px; /* Rounded corners for smoother look */
+  overflow: hidden; /* Ensures rounded corners on inner progress */
+  height: 1.5em; /* Adjust height for visibility */
+}
+
+.progress {
+  background-color: #4caf50; /* Green color for the loading progress */
+  height: 100%; /* Fills the height of the progress bar container */
+  transition: width 0.3s ease-in-out; /* Smooth transition for progress updates */
+}
+
+.population-info {
+  font-weight: bold;
+}
+
+.progress-text {
+  font-weight: bold;
+}
+
+.linear {
+  background: linear-gradient(90deg,
+    var(--src-color, #4caf50) 0%, /* Start with source color */
+    var(--src-color, #4caf50) 1%, /* Source color fades by 20% */
+    white 30%, /* Start white transition earlier */
+    white 70%, /* Extend white section until 60% */
+    var(--dest-color, #ff5722) 99%, /* Start destination color */
+    var(--dest-color, #ff5722) 100% /* End with destination color */
+  );
+  /* Optional: Rounding for a smoother look */
+  color: #ff0000; /* Set text color to contrast with background */
+}
+
+
