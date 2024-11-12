@@ -9,12 +9,7 @@ import {IGame} from '../../model/interface/game'
   styleUrl: './game-box.component.css'
 })
 export class GameBoxComponent {
-  @Input() game: IGame = {
-    id: 0,
-    name: '',
-    description: '',
-    status: 'running'
-  };
+  @Input() game!: IGame;
   @Input() ID: number=0;
   @Input() gamesArray: IGame[] = [];
 

@@ -16,6 +16,6 @@ import { CommonModule } from '@angular/common';
 export class MasterComponent {
  
   runningGames = gamesArray.filter(game => game.status === 'running');
-  oldGames = gamesArray.filter(game => game.status === 'old');
-  upcomingGames = gamesArray.filter(game => game.status === 'upcoming');
+  oldGames = gamesArray.filter(game => game.status === 'pending');
+  upcomingGames = gamesArray.filter(game => game.status === 'stopped');
 }
