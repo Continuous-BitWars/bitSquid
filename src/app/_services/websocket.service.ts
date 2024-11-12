@@ -26,9 +26,9 @@ export class WebsocketService {
 
     this.webSocket.onopen = (): void => {
       console.log("wss connected")
-      this.pingPongSubscription = interval(5000).subscribe(value => {
+      this.pingPongSubscription = interval(5000).subscribe(() => {
         if (this.webSocket != undefined) {
-          this.webSocket.send(JSON.stringify(<WebSocketSubscription>{topic: "Ping", message: ""}));
+          this.webSocket.send(JSON.stringify(<WebSocketSubscription>{topic: "PING", message: ""}));
         }
       })
     };
@@ -70,7 +70,7 @@ export class WebsocketService {
 
     let update: Update = JSON.parse(<string>msg.data);
 
-    if (update.topic == "Pong") {
+    if (update.topic == "PONG") {
       return;
     }
 
@@ -79,7 +79,6 @@ export class WebsocketService {
       return
     }
     let gameId: number = parseInt(gameIdsFromTopic[0])
-
     this.gameTickService.addGameStateForGame(gameId, update.message)
   }
 }

@@ -7,4 +7,5 @@ export interface Base {
   population: number,        // number of bits in the base
   level: number,             // level of the base
   unitsUntilUpgrade: number, // bits needed for until the next upgrade
+  name?: string
 }
