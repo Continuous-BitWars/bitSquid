@@ -1,0 +1,22 @@
+<app-nav-bar></app-nav-bar>
+<app-sidebar></app-sidebar>
+<div class="container">
+    <app-game-container 
+      title="Running Games" 
+      [gamesArray]="runningGames" 
+      borderColor="red"
+      >
+    </app-game-container>
+    <app-game-container 
+      title="Old Games" 
+      [gamesArray]="oldGames" 
+      borderColor="blue"
+      >
+    </app-game-container>
+    <app-game-container 
+      title="Upcoming Games" 
+      [gamesArray]="upcomingGames" 
+      borderColor="green"
+      >
+    </app-game-container>
+  </div>

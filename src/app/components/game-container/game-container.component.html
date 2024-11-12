@@ -1,0 +1,11 @@
+<div class="container" [style.border-color]="borderColor">
+    <div (click)="toggleGames()" class="title">{{title}}</div>
+    <div class="squares" *ngIf="showGames">
+        <div class="square" *ngFor="let game of gamesArray">
+            <div [routerLink]="'/game'"  [queryParams]="{ id: game.id, name: game.name }" class="game-info">
+                <app-game-box [game]="game" [ID]="game.id"></app-game-box>
+            </div>
+        </div>
+    </div>
+
+</div>
