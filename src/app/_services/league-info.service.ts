@@ -37,7 +37,7 @@ export class LeagueInfoService {
     providedIn: 'root',
   })
   export class LeaguePlayerInfoService {
-    async fetchData(playerId: number): Promise<LeagueInfo> {
+    async fetchData(playerId: number): Promise<LeagueInfo[]> {
       const url = `https://bitdealer.bitwars.online/players/${playerId}/leagues`;
       try {
         const response = await axios.get(url);

@@ -8,7 +8,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   templateUrl: './game.component.html',
   styleUrl: './game.component.css'
 })
-export class GameComponent implements OnInit{
+export class Game2Component implements OnInit{
   gameId!: number;
   gameName!: string;
 

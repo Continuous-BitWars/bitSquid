@@ -15,8 +15,7 @@ import { LeagueInfo } from '../../_models/communication/league-info';
 })
 export class PlayersPageComponent {
   scoreboard: ScoreInfo[] = [];
-  public leagueDataMap: Map<number, LeagueInfo> = new Map();
-
+  //public leagueDataMap: Map<number, LeagueInfo[]> = new Map();
   constructor(
     private scoreInfoService: ScoreInfoService,
     private leaguePlayerInfoService: LeaguePlayerInfoService
@@ -28,6 +27,8 @@ export class PlayersPageComponent {
     });
   }
 
+  public leagueNamesMap: Map<number, string> = new Map();
+
   async fetchAllLeagueData() {
     const playerIds = this.scoreboard.map((score) => score.player.id);
     try {
@@ -35,9 +36,11 @@ export class PlayersPageComponent {
         playerIds.map((id) => this.leaguePlayerInfoService.fetchData(id))
       );
       playerIds.forEach((id, index) => {
-        this.leagueDataMap.set(id, leagueDataArray[index]);
+        const leagues = leagueDataArray[index];
+        const leagueNames = leagues.map((league) => league.name).join(', ');
+        this.leagueNamesMap.set(id, leagueNames);
       });
-      console.log('League data map:', this.leagueDataMap);
+      console.log('League names map:', this.leagueNamesMap);
     } catch (error) {
       console.error('Error fetching league data:', error);
     }

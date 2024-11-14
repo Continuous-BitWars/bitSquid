@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { MasterComponent } from './components/master/master.component';
-import { GameComponent } from './components/game/game.component';
+import { GameComponent } from './pages/game/game.component';
 import { GamesPageComponent } from './pages/games-page/games-page.component';
 import { LeaguesPageComponent } from './pages/leagues-page/leagues-page.component';
 import { PlayersPageComponent } from './pages/players-page/players-page.component';

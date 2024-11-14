@@ -26,7 +26,9 @@ export class MapsPageComponent {
   gameClick(item: MapInfo) {
     this.leagueInfoService.currentGameInfo.set(item);
   }
-
+  openProviderUrl(url: string): void {
+    window.open(url, '_blank');
+  }
 
 
 }

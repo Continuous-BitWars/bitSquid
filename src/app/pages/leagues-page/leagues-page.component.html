@@ -1,31 +1,40 @@
-<div class="container" *ngIf="games.length > 0; else noData">
-  <h2 class="title">Leagues</h2>
-  <ul class="league-list">
-    <li class="league-item" *ngFor="let league of games">
-      <div class="league-header">
+<div class="leagues-container" *ngIf="games.length > 0; else noData">
+  <h1>Leagues</h1>
+  <div class="leagues-card-container">
+    <div class="league-card" *ngFor="let league of games">
+      <div class="league-card-header">
         <h3>{{ league.name }}</h3>
+      </div>
+      <div class="league-card-body">
         <p>Status: {{ league.status }}</p>
         <p>Parallel Games: {{ league.parallel_games }}</p>
         <p>Total Games: {{ league.game_count }}</p>
         <p>Default Time Between Ticks: {{ league.default_time_between_ticks }} seconds</p>
-      </div>
-      
-      <div class="section-toggle">
-        <p class="toggle-title" (click)="toggleSection(league, 'players')">
-          {{ isSectionExpanded(league, 'players') ? 'Hide Players' : 'Show Players' }}
-        </p>
+
+        <div class="toggle-buttons">
+          <button (click)="toggleSection(league, 'players')">
+            {{ isSectionExpanded(league, 'players') ? 'Hide Players' : 'Show Players' }}
+          </button>
+          <button (click)="toggleSection(league, 'maps')">
+            {{ isSectionExpanded(league, 'maps') ? 'Hide Maps' : 'Show Maps' }}
+          </button>
+        </div>
+
         <div *ngIf="isSectionExpanded(league, 'players')" class="section-content">
+          <h4>Players</h4>
           <ul>
             <li *ngFor="let player of league.players">
-              <p>{{ player.name }} - Color: <span [style.color]="player.color">{{ player.color }}</span></p>
+              <p>
+                {{ player.name }} - Color:
+                <span class="color-box" [style.background]="player.color"></span>
+                {{ player.color }}
+              </p>
             </li>
           </ul>
         </div>
 
-        <p class="toggle-title" (click)="toggleSection(league, 'maps')">
-          {{ isSectionExpanded(league, 'maps') ? 'Hide Maps' : 'Show Maps' }}
-        </p>
         <div *ngIf="isSectionExpanded(league, 'maps')" class="section-content">
+          <h4>Maps</h4>
           <ul>
             <li *ngFor="let map of league.maps">
               <p>{{ map.name }} - Max Players: {{ map.max_player_count }}</p>
@@ -33,8 +42,8 @@
           </ul>
         </div>
       </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
 
 <ng-template #noData>

@@ -27,18 +27,15 @@
             {{ score.player.color }}
           </td>
           <td>{{ score.score }}</td>
-          <td>{{ score.wins_by_place['additionalProp1'] }}</td>
-          <td>{{ score.wins_by_place['additionalProp2'] }}</td>
-          <td>{{ score.wins_by_place['additionalProp3'] }}</td>
+          <td>{{ score.wins_by_place['1'] }}</td>
+          <td>{{ score.wins_by_place['2'] }}</td>
+          <td>{{ score.wins_by_place['3'] }}</td>
           <td>{{ score.open_games_count }}</td>
           <td>
-            <!-- Access the league data -->
-            <ng-container *ngIf="leagueDataMap.get(score.player.id) as leagueData">
-              {{ leagueData.name }}
-              <!-- You can display more league information here -->
+            <ng-container *ngIf="leagueNamesMap.get(score.player.id) as leagueNames">
+              {{ leagueNames }}
             </ng-container>
-            <!-- Optionally, show a loading indicator or a default message -->
-            <ng-container *ngIf="!leagueDataMap.get(score.player.id)">
+            <ng-container *ngIf="!leagueNamesMap.get(score.player.id)">
               Loading...
             </ng-container>
           </td>
