@@ -1,0 +1,18 @@
+<div class="container" [style.border-color]="borderColor">
+    <div *ngIf="!games || games.length === 0">
+        <div class="spinner">
+          <!-- Example spinner -->
+          <div class="loading"></div>
+        </div>
+    </div>
+    <div *ngIf="games">
+        <div (click)="toggleGames()" class="title">{{title}}</div>
+        <div class="squares" *ngIf="showGames">
+            <div class="square" *ngFor="let game of games">
+                <div [routerLink]="'/game'"  [queryParams]="{ id: game.id, name: game.name }" class="game-info">
+                    <app-game-box [game]="game" [ID]="game.id"></app-game-box>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

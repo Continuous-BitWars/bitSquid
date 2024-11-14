@@ -1,0 +1,21 @@
+<!-- maps-page.component.html -->
+<div class="maps-container" *ngIf="games.length > 0; else noData">
+  <h1>Maps</h1>
+  <div class="maps-card-container">
+    <div class="map-card" *ngFor="let map of games">
+      <div class="map-card-header">
+        <h3>{{ map.name }}</h3>
+      </div>
+      <div class="map-card-body">
+        <p>Max Players: {{ map.max_player_count }}</p>
+        <button class="provider-button" (click)="openProviderUrl(map.provider_url)">
+          Visit Provider
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noData>
+  <p>No maps available.</p>
+</ng-template>

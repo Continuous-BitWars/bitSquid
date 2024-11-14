@@ -1,0 +1,51 @@
+<div class="leagues-container" *ngIf="games.length > 0; else noData">
+  <h1>Leagues</h1>
+  <div class="leagues-card-container">
+    <div class="league-card" *ngFor="let league of games">
+      <div class="league-card-header">
+        <h3>{{ league.name }}</h3>
+      </div>
+      <div class="league-card-body">
+        <p>Status: {{ league.status }}</p>
+        <p>Parallel Games: {{ league.parallel_games }}</p>
+        <p>Total Games: {{ league.game_count }}</p>
+        <p>Default Time Between Ticks: {{ league.default_time_between_ticks }} seconds</p>
+
+        <div class="toggle-buttons">
+          <button (click)="toggleSection(league, 'players')">
+            {{ isSectionExpanded(league, 'players') ? 'Hide Players' : 'Show Players' }}
+          </button>
+          <button (click)="toggleSection(league, 'maps')">
+            {{ isSectionExpanded(league, 'maps') ? 'Hide Maps' : 'Show Maps' }}
+          </button>
+        </div>
+
+        <div *ngIf="isSectionExpanded(league, 'players')" class="section-content">
+          <h4>Players</h4>
+          <ul>
+            <li *ngFor="let player of league.players">
+              <p>
+                {{ player.name }} - Color:
+                <span class="color-box" [style.background]="player.color"></span>
+                {{ player.color }}
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div *ngIf="isSectionExpanded(league, 'maps')" class="section-content">
+          <h4>Maps</h4>
+          <ul>
+            <li *ngFor="let map of league.maps">
+              <p>{{ map.name }} - Max Players: {{ map.max_player_count }}</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noData>
+  <p>No leagues available.</p>
+</ng-template>

@@ -1,0 +1,163 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  border: 1px solid; /* Border color will be set dynamically */
+  padding: 15px;
+  border-radius: 10px; /* Rounded corners for a softer look */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  background-color: #fff;
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.container:hover {
+  transform: translateY(-5px); /* Slight lift effect when hovered */
+}
+
+.title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.title:hover {
+  color: #ff7a7a; /* Highlight the title on hover */
+}
+
+.squares {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.square {
+  height: auto; /* Adjust to fit content */
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 12px;
+  font-size: 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.square:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.game-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none; /* Remove underline on links */
+  border-radius: 12px; /* Rounded corners for game box */
+}
+
+.fancy-square {
+  width: 90vw;
+  height: 90vh;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #fff;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  font-size: 3vw;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 8px 15px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  overflow: hidden;
+  border: 6px solid transparent;
+  background-image: linear-gradient(#fff, #fff), radial-gradient(circle at top left, #ff7a7a, #ff61a6, #ff8a2d);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  transition: transform 0.3s ease;
+}
+
+.fancy-square:hover {
+  transform: scale(1.03); /* Slight scale effect on hover */
+}
+
+.fancy-button {
+  width: 20vw;
+  height: 6vh;
+  max-width: 400px;
+  max-height: 80px;
+  background-color: #fff;
+  color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vw;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  border-radius: 30px;
+  border: 6px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), 0 8px 15px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(#fff, #fff), radial-gradient(circle at top left, #ff7a7a, #ff61a6, #ff8a2d);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  transition: all 0.3s ease;
+}
+
+.fancy-button:hover {
+  background-image: linear-gradient(#fff, #fff), radial-gradient(circle at top left, #ff6a6a, #ff507a, #ff731a);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25), 0 12px 22px rgba(0, 0, 0, 0.2);
+}
+
+.fancy-button:active {
+  transform: scale(0.98);
+}
+
+/* Responsive Design Enhancements */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+
+  .square {
+    height: 25vh;
+    font-size: 1.2rem;
+  }
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.loading {
+  border: 4px solid #f3f3f3; 
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {VideoControlsComponent} from './video-controls/video-controls.component';
 import {WebsocketService} from './_services/websocket.service';
@@ -16,7 +17,7 @@ import {LiveViewerComponent} from './live-viewer/live-viewer.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DashboardComponent, VideoControlsComponent, BaseInformationComponent, NgFor, GameActionComponent, NgIf, LiveViewerComponent],
+  imports: [NavBarComponent, RouterOutlet, DashboardComponent, VideoControlsComponent, BaseInformationComponent, NgFor, GameActionComponent, NgIf, LiveViewerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

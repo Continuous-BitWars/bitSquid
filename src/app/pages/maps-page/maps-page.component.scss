@@ -1,0 +1,87 @@
+.maps-container {
+  padding: 2vh 2vw;
+  font-family: Arial, sans-serif;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 3vh;
+    font-size: 3vh;
+  }
+
+  .maps-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vh;
+    justify-content: center;
+  }
+
+  .map-card {
+    background-color: #f9f9f9;
+    border: 0.2vh solid #ddd;
+    border-radius: 0.8vh;
+    width: 80vw;
+    max-width: 60vw;
+    min-width: 40vw;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s;
+    padding-bottom: 2vh;
+
+    &:hover {
+      box-shadow: 0 0 1.5vh rgba(0, 0, 0, 0.2);
+    }
+
+    .map-card-header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 1.5vh;
+      border-bottom: 0.2vh solid #ddd;
+      border-top-left-radius: 0.8vh;
+      border-top-right-radius: 0.8vh;
+
+      h3 {
+        margin: 0;
+        text-align: center;
+        font-size: 2.4vh;
+      }
+    }
+
+    .map-card-body {
+      padding: 2vh;
+      text-align: left;
+
+      p {
+        margin: 1.5vh 0;
+        line-height: 1.6;
+        font-size: 1.6vh;
+      }
+
+      .provider-button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 1.5vh 2vw;
+        font-size: 1.6vh;
+        border-radius: 0.5vh;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 2vh;
+
+        &:hover {
+          background-color: #45A049;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .map-card {
+    width: 45vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .map-card {
+    width: 30vw;
+  }
+}
