@@ -35,23 +35,24 @@
 }
 
 .square {
-  height: 30vh;
-  width: 100%;
+  height: auto; /* Adjust to fit content */
+  padding: 15px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #4CAF50;
   color: white;
-  border-radius: 12px; /* More rounded corners */
-  font-size: 1.5rem;
+  border-radius: 12px;
+  font-size: 1rem;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Deeper shadow for contrast */
-  transition: transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transition for interactions */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .square:hover {
   transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
 }
 
 .game-info {
@@ -139,4 +140,24 @@
     height: 25vh;
     font-size: 1.2rem;
   }
+}
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.loading {
+  border: 4px solid #f3f3f3; 
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

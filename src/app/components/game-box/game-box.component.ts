@@ -1,6 +1,11 @@
 import { Component, input , Input} from '@angular/core';
 import {IGame} from '../../model/interface/game'
 import { GameInfoService } from '../../_services/game-info.service';
+import { Game } from '../../_models/game/game';
+import { GameInfo } from '../../_models/communication/game-info';
+
+
+
 
 @Component({
   selector: 'app-game-box',
@@ -10,7 +15,7 @@ import { GameInfoService } from '../../_services/game-info.service';
   styleUrl: './game-box.component.css'
 })
 export class GameBoxComponent {
-  @Input() game!: IGame;
+  @Input() game!: GameInfo;
   @Input() ID: number=0;
   @Input() gamesArray: IGame[] = [];
 
@@ -20,7 +25,6 @@ export class GameBoxComponent {
   }
 
   filterGameType(){
-    console.log(this.ID)
-    console.log(this.game.id)
+    //console.log("IDDDDDDDD" ,this.ID)  
   }
 }

@@ -11,19 +11,29 @@ import { GameInfoService } from '../../_services/game-info.service';
 @Component({
   selector: 'app-games-page',
   standalone: true,
-  imports: [CommonModule, SidebarComponent, NavBarComponent, GameContainerComponent, GameBoxComponent],
+  imports: [CommonModule, GameContainerComponent, GameBoxComponent],
+  providers: [GameInfoService],
+
   templateUrl: './games-page.component.html',
   styleUrl: './games-page.component.scss'
 })
 export class GamesPageComponent {
-  /*
+  
   games: GameInfo[] = [];
+  runningGames: GameInfo[] = [];
+  oldGames: GameInfo[] = [];
+  upcomingGames: GameInfo[] = [];
+
+
 
   constructor(private gameInfoService: GameInfoService) {
     // Use effect here to initialize games list and log it to the console
     effect(() => {
       this.games = this.gameInfoService.data();
-      console.log('Games data loaded:', this.games); // Log games data
+      console.log('Games data loaded:', this.games);
+      this.runningGames = this.games.filter(game => game.status === 'running');
+      this.oldGames = this.games.filter(game => game.status === 'done');
+      this.upcomingGames = this.games.filter(game => game.status === 'stopped');
     });
   }
 
@@ -31,11 +41,9 @@ export class GamesPageComponent {
     this.gameInfoService.currentGameInfo.set(item);
   }
 
-*/
 
 
 
-  runningGames = gamesArray.filter(game => game.status === 'running');
-  oldGames = gamesArray.filter(game => game.status === 'pending');
-  upcomingGames = gamesArray.filter(game => game.status === 'stopped');  
+
+   
 }

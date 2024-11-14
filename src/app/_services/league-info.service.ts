@@ -27,6 +27,25 @@ export class LeagueInfoService {
         });
     }
   }
+
+
+
   
+
   
+  @Injectable({
+    providedIn: 'root',
+  })
+  export class LeaguePlayerInfoService {
+    async fetchData(playerId: number): Promise<LeagueInfo> {
+      const url = `https://bitdealer.bitwars.online/players/${playerId}/leagues`;
+      try {
+        const response = await axios.get(url);
+        return response.data;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        throw error;
+      }
+    }
+  }
   

@@ -1,10 +1,9 @@
 import { Component , Input,OnInit,Output} from '@angular/core';
-import {IGame} from '../../model/interface/game'
 import { GameBoxComponent } from '../game-box/game-box.component';
 import { CommonModule } from '@angular/common';
-import { EventEmitter } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { GameInfoService } from '../../_services/game-info.service';
+import { GameInfo } from '../../_models/communication/game-info';
 @Component({
   selector: 'app-game-container',
   standalone: true,
@@ -15,7 +14,7 @@ import { GameInfoService } from '../../_services/game-info.service';
 export class GameContainerComponent implements OnInit{
   @Input() title: string = 'Default Title';
   @Input() borderColor: string = 'black';
-  @Input() gamesArray: IGame[] = [];
+  @Input() games: GameInfo[] = [];
   //s@Output() startGame = new EventEmitter<IGame>(); 
 
   showGames = true;
@@ -33,7 +32,7 @@ export class GameContainerComponent implements OnInit{
   }
 
   filterGameType(){
-    console.log("this is ",this.gamesArray[0].status)
+    //console.log("this is ",this.games)
   }
   
 

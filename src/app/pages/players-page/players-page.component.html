@@ -1,17 +1,49 @@
-<div class="container" *ngIf="games.length > 0; else noData">
-    <h2 class="title">Players</h2>
-    <ul class="league-list">
-      <li class="league-item" *ngFor="let player of games" (click)="gameClick(player)">
-        <div class="league-header">
-          <h3>{{ player.name }}</h3>
-          <p>Provider URL: <a [href]="player.provider_url" target="_blank">{{ player.provider_url }}</a></p>
-          <p>Color: <span [style.color]="player.color">{{ player.color }}</span></p>
-        </div>
-      </li>
-    </ul>
+<!-- player-scores.component.html -->
+<div class="player-scores-container">
+    <h1>Player Scores</h1>
+    <table class="player-scores-table">
+      <thead>
+        <tr>
+          <th>Player ID</th>
+          <th>Player Name</th>
+          <th>Provider URL</th>
+          <th>Color</th>
+          <th>Score</th>
+          <th>Wins (Prop1)</th>
+          <th>Wins (Prop2)</th>
+          <th>Wins (Prop3)</th>
+          <th>Open Games</th>
+          <th>League</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let score of scoreboard">
+          <td>{{ score.player.id }}</td>
+          <td>{{ score.player.name }}</td>
+          <td>{{ score.player.provider_url }}</td>
+          <td>
+            <!-- Display the color as a colored box -->
+            <span class="color-box" [style.background]="score.player.color"></span>
+            {{ score.player.color }}
+          </td>
+          <td>{{ score.score }}</td>
+          <td>{{ score.wins_by_place['additionalProp1'] }}</td>
+          <td>{{ score.wins_by_place['additionalProp2'] }}</td>
+          <td>{{ score.wins_by_place['additionalProp3'] }}</td>
+          <td>{{ score.open_games_count }}</td>
+          <td>
+            <!-- Access the league data -->
+            <ng-container *ngIf="leagueDataMap.get(score.player.id) as leagueData">
+              {{ leagueData.name }}
+              <!-- You can display more league information here -->
+            </ng-container>
+            <!-- Optionally, show a loading indicator or a default message -->
+            <ng-container *ngIf="!leagueDataMap.get(score.player.id)">
+              Loading...
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  
-  <ng-template #noData>
-    <p>No players available.</p>
-  </ng-template>
   

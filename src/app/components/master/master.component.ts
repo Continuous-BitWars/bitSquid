@@ -16,7 +16,5 @@ import { GamesPageComponent } from '../../pages/games-page/games-page.component'
 })
 export class MasterComponent {
  
-  runningGames = gamesArray.filter(game => game.status === 'running');
-  oldGames = gamesArray.filter(game => game.status === 'pending');
-  upcomingGames = gamesArray.filter(game => game.status === 'stopped');
+ 
 }

@@ -1,7 +1,9 @@
-<h3>Name: {{game.id}}</h3>
-<p>ID: {{game.id}}</p>
-<p>status:{{game.status}}</p>
-<p>round number: {{game.round_number}}</p>
-<p>time_between_ticks: {{game.game_options.time_between_ticks}}</p>
-<p>League Name:{{game.league.name}}</p>
-<p>Map Name:{{game.game_map.name}}</p>
+<div class="game-details-container">
+    <p><span class="detail-label">ID:</span> <span class="detail-value">{{game.id}}</span></p>
+    <p><span class="detail-label">Name:</span> <span class="detail-value">{{game.name}}</span></p>
+    <p><span class="detail-label">Player Count:</span> <span class="detail-value">{{game.players.length}}</span></p>
+    <p><span class="detail-label">Game Map:</span> <span class="detail-value">{{game.game_map.name}}</span></p>
+    <p><span class="detail-label">League:</span> <span class="detail-value">{{game.league.name}}</span></p>
+    <p><span class="detail-label">Time Between Ticks:</span> <span class="detail-value">{{game.game_options.time_between_ticks}}</span></p>
+  </div>
+  
