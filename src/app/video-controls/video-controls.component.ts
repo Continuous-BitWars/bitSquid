@@ -1,7 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NgClass} from '@angular/common';
 import {GameTickService, ModeEnum} from '../_services/game-tick.service';
+import {ThreeJsCameraService} from '../_services/threejs/camera.service';
+import {ThreeJsStyleService} from '../_services/threejs/style.service';
 
 @Component({
   selector: 'app-video-controls',
@@ -15,9 +17,14 @@ import {GameTickService, ModeEnum} from '../_services/game-tick.service';
 })
 export class VideoControlsComponent implements OnInit {
 
-  quality: any;
+  @ViewChild('scaleSelect') renderScaleSelect!: ElementRef;
 
-  constructor(public gameTickService: GameTickService) {
+
+  constructor(public gameTickService: GameTickService, private threeJsCameraService: ThreeJsCameraService, protected styleService: ThreeJsStyleService) {
+  }
+
+  ngAfterViewInit(): void {
+    this.renderScaleSelect.nativeElement.value = this.styleService.renderScale;
   }
 
   ngOnInit(): void {
@@ -33,9 +40,13 @@ export class VideoControlsComponent implements OnInit {
     this.gameTickService.setMode(mode);
   }
 
-  onQualityChange($event: Event) {
-
+  onQualityChange(event: Event) {
+    this.styleService.setRenderScale(parseInt(this.renderScaleSelect.nativeElement.value))
   }
 
   protected readonly ModeEnum = ModeEnum;
+
+  addNewCam() {
+    this.threeJsCameraService.addCamera()
+  }
 }

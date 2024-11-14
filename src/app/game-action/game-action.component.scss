@@ -87,19 +87,28 @@
   text-align: center; /* Center-align text for uniformity */
 }
 
-/* Progress Bar Styling */
+/* Progress Bar Container Styling - Full Width and No Rounded Corners */
+.progress-bar-container {
+  width: 100%; /* Take up full width of the parent container */
+  margin: 0; /* Ensure there’s no margin around it */
+  padding: 0; /* Remove any padding */
+}
+
 .progress-bar {
-  background-color: #e0e0e0; /* Background color of the entire progress bar */
-  border-radius: 10px; /* Rounded corners for smoother look */
-  overflow: hidden; /* Ensures rounded corners on inner progress */
   height: 1.5em; /* Adjust height for visibility */
+  width: 100%; /* Take up full width of the container */
+  overflow: hidden; /* Prevents overflow of inner bar */
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .progress {
-  background-color: #4caf50; /* Green color for the loading progress */
+  background-color: #4caf50; /* Color for the progress fill */
   height: 100%; /* Fills the height of the progress bar container */
-  transition: width 0.3s ease-in-out; /* Smooth transition for progress updates */
+  width: 0; /* Initial width, to be set dynamically */
+  transition: width 0.3s ease-in-out; /* Smooth transition for width */
 }
+
 
 .population-info {
   font-weight: bold;

@@ -11,11 +11,12 @@ import {Player} from './_models/game/player';
 import {BaseLevel} from './_models/game/baseLevel';
 import {GameActionComponent} from './game-action/game-action.component';
 import {Base} from './_models/game/base';
+import {LiveViewerComponent} from './live-viewer/live-viewer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DashboardComponent, VideoControlsComponent, BaseInformationComponent, NgFor, GameActionComponent, NgIf],
+  imports: [RouterOutlet, DashboardComponent, VideoControlsComponent, BaseInformationComponent, NgFor, GameActionComponent, NgIf, LiveViewerComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

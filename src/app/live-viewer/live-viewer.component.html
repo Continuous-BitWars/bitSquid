@@ -1,0 +1,11 @@
+<h1 *ngIf="modelService.loadingProgress < 1" class="text-center" style="color: #0056b3">
+  Loading models: {{Math.floor(modelService.loadingProgress * 100)}}%
+</h1>
+
+<div *ngIf="modelService.loadingProgress == 1" class="row">
+  <app-game-cam-renderer
+    *ngFor="let camera of cameraService.cameras"
+    [cameraId]="cameraService.cameras.indexOf(camera)"
+    class="p-4 mb-3 col-{{12 / Math.ceil(Math.sqrt(this.cameraService.cameras.length))}}">
+  </app-game-cam-renderer>
+</div>

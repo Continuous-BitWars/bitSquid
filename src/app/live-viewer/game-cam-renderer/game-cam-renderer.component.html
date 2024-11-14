@@ -1,0 +1,14 @@
+<button class="m-1 btn btn-primary"
+        (click)="this.resetCamera()">
+  Reset
+</button>
+<button class="m-1 btn btn-danger bi-camera-video"
+        (click)="this.removeCamera()">
+  Remove
+</button>
+
+
+<canvas #canvas class="m-1 p-1 w-100 h-100" style="background-color: #444040"
+        [ngStyle]="{'box-shadow': '0px 0px 1em 0.25em #000000'}">
+</canvas>
+

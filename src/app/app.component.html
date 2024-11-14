@@ -1,5 +1,8 @@
 <app-dashboard></app-dashboard>
 <app-video-controls></app-video-controls>
+
+<app-live-viewer></app-live-viewer>
+
 <div *ngIf="gameTickService.currentTick() != undefined" style="width: 500px; float: left">
   <app-base-information *ngFor="let base of gameTickService.currentTick()?.bases"
                         [base]="base"

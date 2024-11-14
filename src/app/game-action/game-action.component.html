@@ -1,7 +1,7 @@
 <div *ngIf="action && player && baseSrc && playerDest && playerSrc && baseDest"
      class="container bg-all text-center my-3 border border-2 rounded-2 shadow-lg">
   <div class="row">
-    <div class="uuid-color linear col-12 py-1"
+    <div class="uuid-color linear col-12 py-1 "
          [ngStyle]="{ '--src-color': playerSrc.color, '--dest-color': playerDest.color }">
       {{action.uuid}}
     </div>
@@ -15,9 +15,8 @@
       </div>
     </div>
     <div class="col-4 arrow-container">
-      <div class="arrow-text arrow-top">{{action.amount}}</div>
       <div class="arrow">→</div>
-      <div class="arrow-text arrow-bottom">Units</div>
+      <div class="arrow-text arrow-bottom">{{action.amount}}</div>
     </div>
     <div class="col-4 bg-color-dest p-3 h-3 "
          [ngStyle]="{ '--player-color': playerDest.color }">
@@ -31,7 +30,10 @@
     </div>
   </div>
   <div class="row ">
-    <div class="col-12 linear progress-bar-container mb-1 px-4">
+    <div class="col-12 linear progress-bar-container  px-4"
+         [ngStyle]="{
+      'background': 'linear-gradient(90deg, ' + playerSrc.color + ' 0%, ' + playerSrc.color + ' 1%, white 30%, white 70%, ' + playerDest.color + ' 99%, ' + playerDest.color + ' 100%)'
+      }">
       <div class="progress-text">{{ attackProgressText }}</div>
       <div class="progress-bar">
         <div class="progress" [style.width.%]="attackPercentage"></div>
