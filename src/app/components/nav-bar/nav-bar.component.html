@@ -1,33 +1,36 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark custom-navbar">
-    <div class="container-fluid">
-        <button class="sidebar-toggle" (click)="toggleSidebar()">☰ Menu</button>
-        <app-sidebar [isSidebarVisible]="isSidebarVisible"></app-sidebar>
-        <a href="javascript:void(0)" class="navbar-brand">Logo</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a routerLink="/games" class="nav-link" routerLinkActive="active">Games</a>
-                </li>
-                <li class="nav-item">
-                    <a [routerLink]="'/leagues'" class="nav-link" routerLinkActive="active">Leagues</a>
-                </li>
-                <li class="nav-item">
-                    <a routerLink="/players" class="nav-link" routerLinkActive="active">Players</a>
-                </li>
-                <li class="nav-item">
-                    <a routerLink="/maps" class="nav-link" routerLinkActive="active">Maps</a>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <input type="text" class="form-control me-2" placeholder="Search">
-                <button class="btn btn-primary">Search</button>
-            </form>
-        </div>
+  <div class="container-fluid">
+    <button class="sidebar-toggle" (click)="toggleSidebar()">☰ Menu</button>
+    <app-sidebar [isSidebarVisible]="isSidebarVisible"></app-sidebar>
+    <!-- Add logo image here -->
+    <a href="javascript:void(0)" class="navbar-brand">
+      <img src="/assets/squid.png" style="height: 40px;" alt=""/> <!-- Adjust height as needed -->
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a routerLink="/games" class="nav-link" routerLinkActive="active">Games</a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="'/leagues'" class="nav-link" routerLinkActive="active">Leagues</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/players" class="nav-link" routerLinkActive="active">Players</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/maps" class="nav-link" routerLinkActive="active">Maps</a>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input type="text" class="form-control me-2" placeholder="Search">
+        <button class="btn btn-primary">Search</button>
+      </form>
     </div>
+  </div>
 </nav>
 <div class="container pt-1">
-    <router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>

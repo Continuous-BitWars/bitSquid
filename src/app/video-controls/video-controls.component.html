@@ -1,29 +1,28 @@
-<div class="video-controls bg-white border rounded p-2">
+<div class="video-controls bg-dark border border-dark rounded p-2">
   <div class="d-flex flex-column flex-md-row align-items-center">
     <!-- Playback Controls (Left) -->
     <div class="btn-group playback-controls me-md-3 mb-3 mb-md-0" role="group" aria-label="Playback controls">
-      <button type="button" class="btn btn-light btn-lg"
+      <button style="background-color: #212529; color: #fff;" type="button" class="btn btn-lg"
               [class.bg-primary]="gameTickService.currentMode == ModeEnum.PLAY_BACKWARD"
               (click)="setGameTickMode(ModeEnum.PLAY_BACKWARD)">
         <i class="fas fa-backward"></i>
       </button>
 
-      <button type="button" class="btn btn-light btn-lg"
+      <button style="background-color: #212529; color: #fff;" type="button" class="btn btn-lg"
               [class.bg-primary]="gameTickService.currentMode == ModeEnum.PAUSE"
               (click)="setGameTickMode(ModeEnum.PAUSE)">
         <i class="fas fa-pause"></i>
       </button>
 
-      <button type="button" class="btn btn-light btn-lg"
+      <button style="background-color: #212529; color: #fff;" type="button" class="btn btn-lg"
               [class.bg-primary]="gameTickService.currentMode == ModeEnum.PLAY_FORWARD"
               (click)="setGameTickMode(ModeEnum.PLAY_FORWARD)">
         <i class="fas fa-forward"></i>
       </button>
 
-      <button type="button" class="btn btn-light btn-lg"
+      <button style="background-color: #212529; color: #fff;" type="button" class="btn btn-lg"
               [class.bg-primary]="gameTickService.currentMode == ModeEnum.LIVE"
               (click)="setGameTickMode(ModeEnum.LIVE)">
-
         <i class="fas fa-broadcast-tower"></i>
       </button>
     </div>
@@ -51,7 +50,8 @@
         min="0"
       />
 
-      <button class="btn btn-outline-secondary camera-button me-2 mb-3 mb-md-0" type="button" (click)="addNewCam()">
+      <button style="background-color: #212529; color: #fff;" class="btn btn-lg camera-button me-2 mb-3 mb-md-0"
+              type="button" (click)="addNewCam()">
         <i class="fas fa-video me-1"></i>
         <i class="fa-solid fa-plus"></i>
       </button>
@@ -73,9 +73,12 @@
         <option value=4120>8k</option>
       </select>
 
-      <button class="btn btn-light external-link" type="button">
+      <button style="background-color: #212529; color: #fff;" class="btn btn-lg external-link" type="button">
         <i class="fa-solid fa-share-nodes"></i>
       </button>
     </div>
   </div>
 </div>
+
+
+

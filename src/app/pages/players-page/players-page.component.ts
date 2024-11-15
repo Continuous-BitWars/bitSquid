@@ -1,11 +1,10 @@
-import { Component, effect } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ScoreInfoService } from '../../_services/score-info.service';
-import { LeaguePlayerInfoService } from '../../_services/league-info.service';
-import { ScoreInfo } from '../../_models/communication/score.info';
-import { LeagueInfo } from '../../_models/communication/league-info';
-import { PlayerListComponent } from '../../components/player-list/player-list.component';
-import { PlayerDetailComponent } from '../../components/player-detail/player-detail.component';
+import {Component, effect} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ScoreInfoService} from '../../_services/score-info.service';
+import {LeaguePlayerInfoService} from '../../_services/league-info.service';
+import {ScoreInfo} from '../../_models/communication/score.info';
+import {PlayerListComponent} from '../../components/player-list/player-list.component';
+import {PlayerDetailComponent} from '../../components/player-detail/player-detail.component';
 
 @Component({
   selector: 'app-players-page',
@@ -16,6 +15,7 @@ import { PlayerDetailComponent } from '../../components/player-detail/player-det
 })
 export class PlayersPageComponent {
   scoreboard: ScoreInfo[] = [];
+
   //public leagueDataMap: Map<number, LeagueInfo[]> = new Map();
   constructor(
     private scoreInfoService: ScoreInfoService,
@@ -23,7 +23,7 @@ export class PlayersPageComponent {
   ) {
     effect(() => {
       this.scoreboard = this.scoreInfoService.data();
-      console.log('Scoreboard data:', this.scoreboard);
+      //console.log('Scoreboard data:', this.scoreboard);
       this.fetchAllLeagueData();
     });
   }
@@ -41,9 +41,9 @@ export class PlayersPageComponent {
         const leagueNames = leagues.map((league) => league.name).join(', ');
         this.leagueNamesMap.set(id, leagueNames);
       });
-      console.log('League names map:', this.leagueNamesMap);
+      //console.log('League names map:', this.leagueNamesMap);
     } catch (error) {
-      console.error('Error fetching league data:', error);
+      // console.error('Error fetching league data:', error);
     }
   }
 

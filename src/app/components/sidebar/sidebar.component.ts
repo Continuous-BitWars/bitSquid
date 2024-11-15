@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { ChildComponent } from "../child/child.component";
+import {CommonModule} from '@angular/common';
+import {Component, Input} from '@angular/core';
+import {ChildComponent} from "../child/child.component";
 
 @Component({
   selector: 'app-sidebar',
@@ -16,11 +16,11 @@ export class SidebarComponent {
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
-    console.log(`Sidebar visibility toggled: ${this.isSidebarVisible}`);
+    //console.log(`Sidebar visibility toggled: ${this.isSidebarVisible}`);
   }
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
-    console.log(`Dropdown visibility toggled: ${this.isDropdownOpen}`);
+    // console.log(`Dropdown visibility toggled: ${this.isDropdownOpen}`);
   }
 }

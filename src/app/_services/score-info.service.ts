@@ -1,7 +1,7 @@
-import { computed, Injectable, signal } from '@angular/core';
+import {computed, Injectable, signal} from '@angular/core';
 import axios from 'axios';
-import { timer } from 'rxjs';
-import { ScoreInfo } from '../_models/communication/score.info';
+import {timer} from 'rxjs';
+import {ScoreInfo} from '../_models/communication/score.info';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +19,7 @@ export class ScoreInfoService {
 
   fetchData() {
     axios
-      .get('https://bitdealer.bitwars.online/scoreboard')
+      .get('https://bitdealer.bitwars.de/scoreboard')
       .then((response) => {
         // Assuming response.data.scores is an array of ScoreInfo
         this.data.set(response.data.scores);
@@ -36,7 +36,7 @@ export class ScoreInfoService {
 
   async fetchLeagueDataByPlayerId(playerId: number) {
     try {
-      const response = await axios.get(`https://bitdealer.bitwars.online/players/${playerId}/leagues`);
+      const response = await axios.get(`https://bitdealer.bitwars.de/players/${playerId}/leagues`);
       return response.data; // Assuming response.data contains league information
     } catch (error) {
       console.error('Error fetching league data:', error);
@@ -46,7 +46,7 @@ export class ScoreInfoService {
 
   async fetchGamesDataByPlayerId(playerId: number) {
     try {
-      const response = await axios.get(`https://bitdealer.bitwars.online/players/${playerId}/games`);
+      const response = await axios.get(`https://bitdealer.bitwars.de/players/${playerId}/games`);
       return response.data; // Assuming response.data contains league information
     } catch (error) {
       console.error('Error fetching league data:', error);

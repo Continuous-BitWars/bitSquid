@@ -1,7 +1,7 @@
 import {Injectable, signal} from "@angular/core";
 import axios from "axios";
 import {timer} from "rxjs"
-import { MapInfo } from "../_models/communication/map-info";
+import {MapInfo} from "../_models/communication/map-info";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +19,7 @@ export class MapInfoService {
 
 
   fetchData() {
-    axios.get('https://bitdealer.bitwars.online/maps')
+    axios.get('https://bitdealer.bitwars.de/maps')
       .then(response => {
         this.data.set(response.data);
       })

@@ -25,7 +25,7 @@ export class WebsocketService {
     this.webSocket = new WebSocket(webSocketURL);
 
     this.webSocket.onopen = (): void => {
-      console.log("wss connected")
+      //console.log("wss connected")
       this.pingPongSubscription = interval(5000).subscribe(() => {
         if (this.webSocket != undefined) {
           this.webSocket.send(JSON.stringify(<WebSocketSubscription>{topic: "PING", message: ""}));
@@ -36,7 +36,7 @@ export class WebsocketService {
     this.webSocket.onmessage = (msg: MessageEvent) => this.handleGameUpdates(msg);
 
     this.webSocket.onclose = (): void => {
-      console.log("wss disconnected")
+      //console.log("wss disconnected")
       if (this.pingPongSubscription != undefined) {
         this.pingPongSubscription.unsubscribe()
       }
@@ -45,7 +45,7 @@ export class WebsocketService {
   }
 
   public setTargetGame(gameId: number): void {
-    console.log(`change es game to ${gameId}`)
+    //console.log(`change es game to ${gameId}`)
     if (gameId == this.currentGameId) {
       return
     }

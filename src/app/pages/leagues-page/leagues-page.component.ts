@@ -1,7 +1,7 @@
-import { Component, effect } from '@angular/core';
-import { LeagueInfoService } from '../../_services/league-info.service';
-import { CommonModule } from '@angular/common';
-import { LeagueInfo } from '../../_models/communication/league-info';
+import {Component, effect} from '@angular/core';
+import {LeagueInfoService} from '../../_services/league-info.service';
+import {CommonModule} from '@angular/common';
+import {LeagueInfo} from '../../_models/communication/league-info';
 
 @Component({
   selector: 'app-leagues-page',
@@ -19,7 +19,7 @@ export class LeaguesPageComponent {
   constructor(private leagueInfoService: LeagueInfoService) {
     effect(() => {
       this.games = this.leagueInfoService.data();
-      console.log('Games data loaded:', this.games); // Log games data
+      //console.log('Games data loaded:', this.games); // Log games data
     });
   }
 
@@ -31,7 +31,7 @@ export class LeaguesPageComponent {
   toggleSection(league: LeagueInfo, section: 'players' | 'maps') {
     // Initialize visibility state for league if not already set
     if (!this.visibilityState[league.id]) {
-      this.visibilityState[league.id] = { players: false, maps: false };
+      this.visibilityState[league.id] = {players: false, maps: false};
     }
 
     // Toggle the visibility of the section

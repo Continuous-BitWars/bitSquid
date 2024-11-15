@@ -4,6 +4,13 @@
   border-radius: 8px;
   padding: 8px;
 
+  /* Fixed positioning */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999; /* Ensures it appears above all other elements */
+
   .playback-controls,
   .right-controls {
     display: flex;

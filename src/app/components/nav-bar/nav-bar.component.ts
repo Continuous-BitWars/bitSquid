@@ -1,7 +1,7 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { SidebarComponent } from "../sidebar/sidebar.component";
+import {CommonModule} from '@angular/common';
+import {Component} from '@angular/core';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
+import {SidebarComponent} from "../sidebar/sidebar.component";
 
 @Component({
   selector: 'app-nav-bar',
@@ -17,11 +17,11 @@ export class NavBarComponent {
 
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
-    console.log(`Sidebar visibility toggled: ${this.isSidebarVisible}`);
+    //console.log(`Sidebar visibility toggled: ${this.isSidebarVisible}`);
   }
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
-    console.log(`Dropdown visibility toggled: ${this.isDropdownOpen}`);
+    // console.log(`Dropdown visibility toggled: ${this.isDropdownOpen}`);
   }
 }

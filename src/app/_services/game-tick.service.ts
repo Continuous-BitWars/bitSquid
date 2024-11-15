@@ -28,18 +28,13 @@ export class GameTickService {
   })
 
   currentMode: ModeEnum = ModeEnum.LIVE
-  currentGameID: Signal<number>; //Array mit allen spielticks
-  // die bisher gepielt worden sind wenn sich gameID ändert soll drauf reagiert werden am besten mit effect
-  // überprüfe in tickMap ob Id der index 0 der erste tick ist wenn nicht dann /games/gameID/ticks z.b. /games/1/ticks
-  // überprüfe ob id von letztem tick gleich mit anzahl ticks sind dann in tickMap packen
-  // axios request mit get
-  // url als global constant
+  currentGameID: Signal<number>;
   private timerSubscription?: Subscription;
 
   fetchData(gameID: number) {
     if (gameID == 0) return;
-    console.log("fetch data game tick")
-    axios.get(`https://bitdealer.bitwars.online/games/${gameID}/ticks`)
+    //console.log("fetch data game tick")
+    axios.get(`https://bitdealer.bitwars.de/games/${gameID}/ticks`)
       .then((response: AxiosResponse<GameState[]>) => {
         let data: GameState[] = response.data;
         data.forEach(value => this.addGameStateForGame(gameID, value, false))
