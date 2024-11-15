@@ -37,8 +37,8 @@ export class GameDetailsMobileComponent {
 
   getBaseLevelByLevel(level: number): BaseLevel {
     let levels = this.gameState.config.baseLevels
-    if (levels != undefined && level > 0 && level < levels.length) {
-      return levels[level - 1]
+    if (levels != undefined && level >= 0 && level < levels.length) {
+      return levels[level]
     }
     return {maxPopulation: 0, spawnRate: 0, upgradeCost: 0}
   }
