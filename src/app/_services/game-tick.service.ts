@@ -3,6 +3,7 @@ import {GameState} from '../_models/game/gameState';
 import {GameInfoService} from './game-info.service';
 import {interval, Subscription} from 'rxjs';
 import axios, {AxiosError, AxiosResponse} from 'axios';
+import { URL } from '../config';
 
 export enum ModeEnum {
   LIVE,
@@ -38,7 +39,7 @@ export class GameTickService {
 
   fetchData(gameID: number) {
     if (gameID == 0) return;
-    axios.get(`https://bitdealer.bitwars.online/games/${gameID}/ticks`)
+    axios.get(`${URL}/games/${gameID}/ticks`)
       .then((response: AxiosResponse<GameState[]>) => {
         let data: GameState[] = response.data;
         data.forEach(value => this.addGameStateForGame(gameID, value, false))
