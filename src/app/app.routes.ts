@@ -1,5 +1,4 @@
 import {Routes} from '@angular/router';
-import {MasterComponent} from './components/master/master.component';
 import {GamesPageComponent} from './pages/games-page/games-page.component';
 import {LeaguesPageComponent} from './pages/leagues-page/leagues-page.component';
 import {PlayersPageComponent} from './pages/players-page/players-page.component';
@@ -11,12 +10,8 @@ import {GameDetailsComponent} from './game-details/game-details.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'master',
+    redirectTo: 'games',
     pathMatch: 'full'
-  },
-  {
-    path: 'master',
-    component: MasterComponent
   },
   {
     path: 'games',
