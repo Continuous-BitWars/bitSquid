@@ -2,11 +2,12 @@ import { Component, effect } from '@angular/core';
 import { LeagueInfoService } from '../../_services/league-info.service';
 import { CommonModule } from '@angular/common';
 import { LeagueInfo } from '../../_models/communication/league-info';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-leagues-page',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,RouterLink],
   templateUrl: './leagues-page.component.html',
   styleUrls: ['./leagues-page.component.scss']
 })
@@ -16,7 +17,7 @@ export class LeaguesPageComponent {
   selectedLeague: LeagueInfo | null = null; // Store selected league for toggling
   visibilityState: { [key: number]: { players: boolean, maps: boolean } } = {}; // New state for visibility
 
-  constructor(private leagueInfoService: LeagueInfoService) {
+  constructor(private leagueInfoService: LeagueInfoService,private router: Router) {
     effect(() => {
       this.games = this.leagueInfoService.data();
       console.log('Games data loaded:', this.games); // Log games data
@@ -42,4 +43,8 @@ export class LeaguesPageComponent {
   isSectionExpanded(league: LeagueInfo, section: 'players' | 'maps'): boolean {
     return this.visibilityState[league.id]?.[section] ?? false; // Default to false if not set
   }
+
+  onPlayerRowClick(leagueId: number) {
+    this.router.navigate(['/leagues', leagueId, '/scoreboard']);
+}
 }

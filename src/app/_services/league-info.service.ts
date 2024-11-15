@@ -51,15 +51,19 @@ export class LeagueInfoService {
     }
 
 
-    async fetchLeagueDataByPlayerId(leagueId: number) {
+    async fetchLeagueDataByPlayerId(leagueId: number): Promise<LeagueInfo[]> {
       try {
-        const response = await axios.get(`https://bitdealer.bitwars.de/leagues/${leagueId}`);
-        console.log("Raw API Response:", response);
-        return response.data; // Ensure this is what you expect
+          const response = await axios.get(`https://bitdealer.bitwars.de/leagues/${leagueId}/scoreboard`);
+          console.log("Raw API Response:", response.data);
+          return response.data; // Return the array directly
       } catch (error) {
-        console.error("Error fetching league data:", error);
-        throw error;
+          console.error("Error fetching league data:", error);
+          throw error;
       }
-    }
+  }
+  
+
+
+  
   }
   

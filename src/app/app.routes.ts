@@ -6,6 +6,7 @@ import { LeaguesPageComponent } from './pages/leagues-page/leagues-page.componen
 import { PlayersPageComponent } from './pages/players-page/players-page.component';
 import { MapsPageComponent } from './pages/maps-page/maps-page.component';
 import { PlayerDetailComponent } from './components/player-detail/player-detail.component';
+import { LeagueDetailComponent } from './components/league-detail/league-detail.component';
 //import { EmployeeComponent } from './components/employee/employee.component';
 //import { ClientComponent } from './components/client/client.component';
 
@@ -30,6 +31,10 @@ export const routes: Routes = [
     {
         path:'leagues',
         component:LeaguesPageComponent
+    },
+    {
+        path:'leagues/:id/scoreboard',
+        component:LeagueDetailComponent
     },
     {
         path:'players',
