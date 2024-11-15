@@ -12,8 +12,6 @@ import { GameInfoService } from '../../_services/game-info.service';
   selector: 'app-games-page',
   standalone: true,
   imports: [CommonModule, GameContainerComponent, GameBoxComponent],
-  providers: [GameInfoService],
-
   templateUrl: './games-page.component.html',
   styleUrl: './games-page.component.scss'
 })

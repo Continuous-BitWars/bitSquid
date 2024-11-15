@@ -7,7 +7,6 @@ import { MapInfo } from '../../_models/communication/map-info';
   selector: 'app-maps-page',
   standalone: true,
   imports: [CommonModule],
-  providers: [MapInfoService],
   templateUrl: './maps-page.component.html',
   styleUrl: './maps-page.component.scss'
 })

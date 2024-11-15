@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="player-container">
+    <div *ngIf="playerData() as playerData" class="profile-container">
+      <!-- Player Header Section -->
+      <div class="profile-header">
+        <div class="profile-avatar" [style.background]="playerData.player.color">
+          
+        </div>
+        <div class="profile-details">
+          <h1 class="player-name">{{ playerData.player.name }}</h1>
+          <p class="player-id">Player ID: {{ playerData.player.id  }}</p>
+        </div>
+      </div>
+    
+      <!-- Player Statistics Section -->
+      <div class="profile-stats">
+        <h2>Player Statistics</h2>
+        <div class="stats-grid">
+          <div class="stat-item">
+            <h3>Score</h3>
+            <p>{{ playerData.score }}</p>
+          </div>
+          <div class="stat-item">
+            <h3>Color</h3>
+            <p>
+              <span class="color-box" [style.background]="playerData.player.color"></span>
+              {{ playerData.player.color }}
+            </p>
+          </div>
+          <div class="stat-item">
+            <h3>Open Games</h3>
+            <p>{{ playerData.open_games_count }}</p>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Player Wins Section -->
+      <div class="profile-wins">
+        <h2>Wins by Placement</h2>
+        <div class="wins-grid">
+          <div class="win-item" *ngFor="let place of [1, 2, 3, 4]">
+            <h3>Wins (Placement {{ place }})</h3>
+            <p>{{ playerData.wins_by_place[place] }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Loading State -->
+    <div *ngIf="!playerData()" class="loading-container">
+      <p>Loading player data... </p>
+    </div>
+  
+    <div *ngIf="playerData() as player">
+      <h2>Leagues</h2>
+      <ul>
+        <li *ngFor="let league of leagueData">{{ league.name }}</li>
+      </ul>
+    </div>
+    <div *ngIf="!playerData()">
+      <p>Loading player data...</p>
+    </div>
+  </div>
+</div>

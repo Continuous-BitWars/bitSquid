@@ -7,7 +7,6 @@ import { LeagueInfo } from '../../_models/communication/league-info';
   selector: 'app-leagues-page',
   standalone: true,
   imports: [CommonModule],
-  providers: [LeagueInfoService],
   templateUrl: './leagues-page.component.html',
   styleUrls: ['./leagues-page.component.scss']
 })

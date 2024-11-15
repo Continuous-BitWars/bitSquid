@@ -1,0 +1,48 @@
+<h1>Player Scores</h1>
+<table class="player-scores-table">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Player ID</th>
+      <th>Player Name</th>
+      <th>Color</th>
+      <th>Score</th>
+      <th><i class="fas fa-trophy" style="color: gold;"></i></th>
+      <th><i class="fas fa-trophy" style="color: silver;"></i></th>
+      <th><i class="fas fa-trophy" style="color: #cd7f32;"></i></th>
+      <th><i class="fas fa-medal" style="color: #341101;"></i></th>
+      <th>Open Games</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let score of scoreboard; let i = index" (click)="onPlayerRowClick(score.player.id)">
+      <td>
+        <ng-container *ngIf="i === 0">
+          🥇
+        </ng-container>
+        <ng-container *ngIf="i === 1">
+          🥈
+        </ng-container>
+        <ng-container *ngIf="i === 2">
+          🥉
+        </ng-container>
+        <ng-container *ngIf="i > 2">
+          {{ i + 1 }}
+        </ng-container>
+      </td>
+      <td>{{ score.player.id }}</td>
+      <td>{{ score.player.name }}</td>
+      <td>
+        <!-- Display the color as a colored box -->
+        <span class="color-box" [style.background]="score.player.color"></span>
+        {{ score.player.color }}
+      </td>
+      <td>{{ score.score }}</td>
+      <td>{{ score.wins_by_place['1'] }}</td>
+      <td>{{ score.wins_by_place['2'] }}</td>
+      <td>{{ score.wins_by_place['3'] }}</td>
+      <td>{{ score.wins_by_place['4'] }}</td>
+      <td>{{ score.open_games_count }}</td>
+    </tr>
+  </tbody>
+</table>
