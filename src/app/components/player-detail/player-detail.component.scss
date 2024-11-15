@@ -115,3 +115,19 @@ ul li:hover {
   background-color: #2a475e;
   cursor: pointer;
 }
+h2[routerLink] {
+  color: #66c0f4; /* Make the text color stand out */
+  text-decoration: underline; /* Add an underline for a link-like appearance */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+  transition: color 0.3s, transform 0.2s; /* Add smooth transitions */
+}
+
+h2[routerLink]:hover {
+  color: #ffffff; /* Change color on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+h2[routerLinkActive] {
+  color: #ffcc00; /* Highlight active link */
+  font-weight: bold; /* Make it bold for better visibility */
+}

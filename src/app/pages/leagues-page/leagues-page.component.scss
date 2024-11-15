@@ -1,10 +1,18 @@
 .leagues-container {
-  padding: 2vh 2vw; // Use viewport units for padding
+  padding: 2vh 2vw; /* Consistent padding */
   font-family: Arial, sans-serif;
-
+  background-color: #1b2838; /* Darker background */
+  color: #c7d5e0; /* Light text color */
+  margin-top: 10vh;
+  
   h1 {
     text-align: center;
     margin-bottom: 3vh;
+    font-size: 3vh;
+    color: #66c0f4; /* Highlight for heading */
+    text-transform: uppercase;
+    border-bottom: 0.3vh solid #2a475e;
+    padding-bottom: 1vh;
   }
 
   .leagues-card-container {
@@ -15,31 +23,33 @@
   }
 
   .league-card {
-    background-color: #f9f9f9;
-    border: 0.2vh solid #ddd;
-    border-radius: 0.8vh;
-    width: 80vw; // Card takes 80% of viewport width
-    max-width: 60vw; // Maximum width to prevent overly large cards
-    min-width: 40vw; // Minimum width to ensure readability
+    background-color: #2a475e; /* Base color for cards */
+    border: 0.2vh solid #1b2838; /* Slightly darker border */
+    border-radius: 1vh;
+    width: 90%; /* Adjust width for responsiveness */
+    max-width: 50vw;
+    min-width: 40vw;
     box-sizing: border-box;
-    transition: box-shadow 0.3s;
+    box-shadow: 0 0.5vh 1.5vh rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
 
     &:hover {
-      box-shadow: 0 0 1.5vh rgba(0, 0, 0, 0.2);
+      transform: translateY(-0.5vh);
+      box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.5);
     }
 
     .league-card-header {
-      background-color: #4CAF50;
-      color: white;
+      background-color: #66c0f4; /* Accent color for headers */
+      color: #1b2838; /* Contrast text */
       padding: 1.5vh;
-      border-bottom: 0.2vh solid #ddd;
-      border-top-left-radius: 0.8vh;
-      border-top-right-radius: 0.8vh;
+      border-bottom: 0.2vh solid #1b2838;
+      border-top-left-radius: 1vh;
+      border-top-right-radius: 1vh;
 
       h3 {
         margin: 0;
         text-align: center;
-        font-size: 2.4vh;
+        font-size: 2.2vh;
       }
     }
 
@@ -48,7 +58,7 @@
       text-align: left;
 
       p {
-        margin: 1.5vh 0;
+        margin: 1vh 0;
         line-height: 1.6;
         font-size: 1.6vh;
       }
@@ -61,28 +71,33 @@
 
         button {
           flex: 1;
-          background-color: #4CAF50;
-          color: white;
+          background-color: #66c0f4;
+          color: #1b2838;
           border: none;
           padding: 1vh 1.5vh;
-          font-size: 1.6vh;
+          font-size: 1.5vh;
           border-radius: 0.5vh;
           cursor: pointer;
-          transition: background-color 0.3s;
+          transition: background-color 0.3s, transform 0.2s;
 
           &:hover {
-            background-color: #45A049;
+            background-color: #4CAF50;
+            transform: scale(1.05);
           }
         }
       }
 
       .section-content {
-        margin-top: 1.5vh;
+        margin-top: 2vh;
+        padding: 1vh;
+        background-color: #1b2838; /* Slightly darker section background */
+        border-radius: 0.5vh;
 
         h4 {
           margin-bottom: 1.5vh;
-          color: #2c3e50;
-          font-size: 2vh;
+          color: #c7d5e0;
+          font-size: 1.8vh;
+          text-transform: uppercase;
         }
 
         ul {
@@ -103,11 +118,12 @@
                 height: 2vh;
                 margin-right: 0.5vh;
                 vertical-align: middle;
-                border: 0.1vh solid #ccc;
+                border: 0.1vh solid #c7d5e0;
+                border-radius: 50%;
               }
 
               a {
-                color: #4CAF50;
+                color: #66c0f4;
                 text-decoration: none;
 
                 &:hover {
@@ -122,14 +138,25 @@
   }
 }
 
+/* Responsive Design */
 @media (min-width: 768px) {
   .league-card {
-    width: 45vw; // Two cards per row on medium screens
+    width: 45vw; /* Two cards per row on medium screens */
   }
 }
 
 @media (min-width: 1200px) {
   .league-card {
-    width: 30vw; // Three cards per row on large screens
+    width: 30vw; /* Three cards per row on large screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .league-card {
+    width: 90vw; /* Single card per row on small screens */
+  }
+
+  .toggle-buttons button {
+    font-size: 1.3vh; /* Adjust button size */
   }
 }

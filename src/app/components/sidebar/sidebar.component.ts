@@ -1,17 +1,26 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ChildComponent } from "../child/child.component";
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ChildComponent],
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.css'
+  styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
-  isDropdownOpen: boolean = false;
+  isSidebarVisible: boolean = false; // Tracks sidebar visibility
+  isDropdownOpen: boolean = false;  // Tracks dropdown visibility
+
+
+  toggleSidebar() {
+    this.isSidebarVisible = !this.isSidebarVisible;
+    console.log(`Sidebar visibility toggled: ${this.isSidebarVisible}`);
+  }
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
+    console.log(`Dropdown visibility toggled: ${this.isDropdownOpen}`);
   }
 }

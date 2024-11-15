@@ -12,11 +12,12 @@ import {Player} from './_models/game/player';
 import {BaseLevel} from './_models/game/baseLevel';
 import {GameActionComponent} from './game-action/game-action.component';
 import {Base} from './_models/game/base';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavBarComponent, DashboardComponent, VideoControlsComponent, BaseInformationComponent, NgFor, GameActionComponent, NgIf],
+  imports: [SidebarComponent, RouterOutlet,NavBarComponent, DashboardComponent, VideoControlsComponent, BaseInformationComponent, NgFor, GameActionComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

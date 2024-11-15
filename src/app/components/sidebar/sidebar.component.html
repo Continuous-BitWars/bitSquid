@@ -1,17 +1,12 @@
-<div class="sidebar">
-    <div class="sidebar-item" (click)="toggleDropdown()">
-      <span class="icon">🔽</span>
-      <span class="label">Menu</span>
-      <span class="arrow" [ngClass]="{'rotate': isDropdownOpen}">▼</span>
-    </div>
-  
-    <!-- Dropdown menu, shown when isDropdownOpen is true -->
-    <div *ngIf="isDropdownOpen" class="dropdown">
-      <ul>
-        <li><a href="#">Item 1</a></li>
-        <li><a href="#">Item 2</a></li>
-        <li><a href="#">Item 3</a></li>
-      </ul>
-    </div>
+<!-- Sidebar Toggle Button -->
+
+
+<!-- Sidebar and Overlay -->
+<div class="sidebar-overlay" *ngIf="isSidebarVisible" (click)="toggleSidebar()"></div>
+<button class="sidebar-toggle" (click)="toggleSidebar()">☰ Menu</button>
+<div class="sidebar" [class.show]="isSidebarVisible">
+  <div class="sidebar-item" (click)="toggleDropdown()">
+     <app-child></app-child>
   </div>
-  
+
+</div>

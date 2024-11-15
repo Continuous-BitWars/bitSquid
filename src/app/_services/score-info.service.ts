@@ -43,4 +43,14 @@ export class ScoreInfoService {
       return [];
     }
   }
+
+  async fetchGamesDataByPlayerId(playerId: number) {
+    try {
+      const response = await axios.get(`https://bitdealer.bitwars.online/players/${playerId}/games`);
+      return response.data; // Assuming response.data contains league information
+    } catch (error) {
+      console.error('Error fetching league data:', error);
+      return [];
+    }
+  }
 }
