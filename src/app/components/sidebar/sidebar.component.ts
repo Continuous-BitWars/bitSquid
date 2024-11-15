@@ -10,7 +10,7 @@ import { ChildComponent } from "../child/child.component";
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
-  isSidebarVisible: boolean = false; // Tracks sidebar visibility
+  @Input() isSidebarVisible: boolean = false; // Tracks sidebar visibility
   isDropdownOpen: boolean = false;  // Tracks dropdown visibility
 
 

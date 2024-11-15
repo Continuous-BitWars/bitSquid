@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark custom-navbar">
     <div class="container-fluid">
+        <button class="sidebar-toggle" (click)="toggleSidebar()">☰ Menu</button>
+        <app-sidebar [isSidebarVisible]="isSidebarVisible"></app-sidebar>
         <a href="javascript:void(0)" class="navbar-brand">Logo</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
             <span class="navbar-toggler-icon"></span>
