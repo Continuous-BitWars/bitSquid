@@ -1,4 +1,21 @@
 /* Custom Navbar Styling */
+
+.sidebar-toggle{
+  margin-right: 3vw;
+  background-color: #2a475e;
+  color: #c7d5e0;
+  border: none;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 10px 20px;
+
+}
+
+.sidebar-toggle:hover {
+    background-color: #66c0f4; /* Accent color */
+}
+
 .custom-navbar {
     background-color: #333;
     color: white;

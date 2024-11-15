@@ -1,12 +1,8 @@
-<!-- Sidebar Toggle Button -->
-
 
 <!-- Sidebar and Overlay -->
 <div class="sidebar-overlay" *ngIf="isSidebarVisible" (click)="toggleSidebar()"></div>
-<button class="sidebar-toggle" (click)="toggleSidebar()">☰ Menu</button>
 <div class="sidebar" [class.show]="isSidebarVisible">
   <div class="sidebar-item" (click)="toggleDropdown()">
      <app-child></app-child>
   </div>
-
 </div>
