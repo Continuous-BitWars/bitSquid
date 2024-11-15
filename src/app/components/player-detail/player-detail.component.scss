@@ -1,0 +1,133 @@
+.container {
+  margin-top: 10vh;
+  
+}
+
+.player-container {
+  background-color: #1b2838;
+  color: #c7d5e0;
+  font-family: "Arial", sans-serif;
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+}
+
+.profile-container {
+  border: 2px solid #2a475e;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #2f3d4a;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #2a475e;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  height: 10vh;
+  width: 10vw;
+  border: 2px solid #2a475e;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.player-name {
+  font-size: 2em;
+  margin: 0;
+  color: #66c0f4;
+}
+
+.player-id {
+  font-size: 1.1em;
+  color: #8f98a0;
+}
+
+.profile-stats, .profile-wins {
+  border-top: 2px solid #2a475e;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+
+.stats-grid, .wins-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.stat-item, .win-item {
+  background-color: #1b2838;
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid #2a475e;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.stat-item:hover, .win-item:hover {
+  transform: scale(1.05);
+}
+
+.stat-item h3, .win-item h3 {
+  font-size: 1.2em;
+  color: #66c0f4;
+  margin-bottom: 10px;
+}
+.color-box {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.loading-container {
+  text-align: center;
+  font-size: 1.2em;
+  color: #8f98a0;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li {
+  background-color: #1b2838;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #2a475e;
+  color: #c7d5e0;
+}
+
+ul li:hover {
+  background-color: #2a475e;
+  cursor: pointer;
+}
+h2[routerLink] {
+  color: #66c0f4; /* Make the text color stand out */
+  text-decoration: underline; /* Add an underline for a link-like appearance */
+  cursor: pointer; /* Change the cursor to a pointer on hover */
+  transition: color 0.3s, transform 0.2s; /* Add smooth transitions */
+}
+
+h2[routerLink]:hover {
+  color: #ffffff; /* Change color on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+h2[routerLinkActive] {
+  color: #ffcc00; /* Highlight active link */
+  font-weight: bold; /* Make it bold for better visibility */
+}

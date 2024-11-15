@@ -7,13 +7,13 @@ import {WebsocketService} from './_services/websocket.service';
 import {BaseInformationComponent} from './player-info-card/base-information.component';
 import {NgFor, NgIf} from '@angular/common';
 import {GameActionComponent} from './game-action/game-action.component';
-import {LiveViewerComponent} from './live-viewer/live-viewer.component';
-import {GameDetailsComponent} from './game-details/game-details.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [NavBarComponent, RouterOutlet, DashboardComponent, VideoControlsComponent, BaseInformationComponent, NgFor, GameActionComponent, NgIf, LiveViewerComponent, GameDetailsComponent],
+  imports: [SidebarComponent, RouterOutlet,NavBarComponent, DashboardComponent, VideoControlsComponent, BaseInformationComponent, NgFor, GameActionComponent, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

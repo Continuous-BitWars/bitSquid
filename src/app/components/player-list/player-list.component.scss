@@ -1,0 +1,100 @@
+.container{
+  margin-top: 10vh;
+}
+
+.player-scores-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #2a475e; /* Base color for the container */
+  color: #c7d5e0; /* Light text color for contrast */
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.player-scores-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #66c0f4; /* Highlighted color for headings */
+  border-bottom: 2px solid #1b2838;
+  padding-bottom: 10px;
+}
+
+.player-scores-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #1b2838; /* Darker background for table */
+  color: #c7d5e0; /* Light text color for better readability */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.player-scores-table thead {
+  background-color: #2a475e; /* Slightly darker than base color */
+}
+
+.player-scores-table th,
+.player-scores-table td {
+  padding: 12px 8px;
+  text-align: center;
+  border: 1px solid #1b2838;
+}
+
+.player-scores-table th {
+  background-color: #66c0f4; /* Highlighted header */
+  color: #1b2838; /* Dark text for contrast */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.player-scores-table tbody tr:nth-child(even) {
+  background-color: #2f3d4a; /* Alternate row color */
+}
+
+.player-scores-table tbody tr:nth-child(odd) {
+  background-color: #1b2838; /* Base background color */
+}
+
+.player-scores-table tbody tr:hover {
+  background-color: #2a475e;
+  cursor: pointer;
+  transform: scale(1.01);
+  transition: all 0.2s ease-in-out;
+}
+
+.color-box {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  vertical-align: middle;
+  border: 1px solid #c7d5e0;
+  border-radius: 3px; /* Slightly rounded corners for modern look */
+}
+
+th i {
+  transition: transform 0.3s ease, color 0.3s ease;
+  color: gold;
+}
+
+th i:hover {
+  transform: scale(1.2);
+  color: #ffffff; /* White on hover */
+}
+
+th:hover {
+  background-color: #66c0f4; /* Highlight header on hover */
+}
+
+.player-scores-table td {
+  font-size: 1em;
+}
+
+.player-scores-table td:first-child {
+  font-weight: bold;
+  color: #66c0f4;
+}
+
+.player-scores-table td .color-box {
+  border: 1px solid #66c0f4;
+}

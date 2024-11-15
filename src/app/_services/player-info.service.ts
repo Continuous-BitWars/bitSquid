@@ -4,7 +4,9 @@ import {timer} from "rxjs"
 import { PlayerInfo } from "../_models/communication/player-info";
 
 
-
+@Injectable({
+  providedIn: 'root'
+})
 export class PlayerInfoService {
     data = signal<PlayerInfo[]>([]);
     currentGameInfo = signal<PlayerInfo | undefined>(undefined)

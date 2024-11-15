@@ -3,7 +3,9 @@ import axios from "axios";
 import {timer} from "rxjs"
 import { LeagueInfo } from "../_models/communication/league-info";
 
-
+@Injectable({
+  providedIn: 'root'
+})
 
 export class LeagueInfoService {
     data = signal<LeagueInfo[]>([]);
