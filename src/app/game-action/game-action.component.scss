@@ -1,105 +1,111 @@
-/* Arrow container with UUID and Units text */
+
+.attack-box {
+  margin: 0 auto;
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ccc;
+}
+
+.uuid-header {
+  background: linear-gradient(to right, var(--src-color), var(--dest-color));
+  color: white;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.main-content {
+  display: flex;
+  padding: 20px;
+}
+
+.player-info {
+  flex: 1;
+  padding: 15px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.attacker {
+  border: 6.5px solid var(--src-color);
+  background-color: #d7d7d766;
+}
+
+.defender {
+  border: 6.5px solid var(--dest-color);
+  background-color: #d7d7d766;
+}
+
+.coordinates {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 12px;
+  color: #000000;
+}
+
 .arrow-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  position: relative;
+  padding: 0 20px;
 }
 
-/* Styling for UUID text above arrow */
-.arrow-text.arrow-top {
-  font-size: 1.2em;
-  color: #ff0000;
-  font-weight: 500;
-  text-align: center;
-  white-space: nowrap; /* Prevents line breaks */
-  overflow: hidden; /* Ensures long text doesn’t overflow */
-  text-overflow: ellipsis; /* Adds ellipsis (...) if UUID is too long */
-  margin-bottom: 5px; /* Spacing between UUID and arrow */
-}
-
-/* Arrow styling */
 .arrow {
-  font-size: 3em;
-  color: #000000;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 40px solid #333;
+  transform: rotate(90deg);
 }
 
-/* Styling for Units text below arrow */
-.arrow-text.arrow-bottom {
-  font-size: 1.2em;
-  color: #ff0000;
-  font-weight: 500;
-  text-align: center;
-  margin-top: 5px; /* Spacing between arrow and units */
-}
-
-
-/* Text positioning for Units */
-.arrow-text.arrow-bottom {
-  font-size: 1.2em;
-  color: #ff0000;
-  font-weight: 500;
-}
-
-.bg-color-src {
-  background: linear-gradient(90deg, var(--player-color, #4caf50) 0%, white 90%);
-}
-
-.bg-color-dest {
-  background: linear-gradient(90deg, white 10%, var(--player-color, #4caf50) 100%);
-}
-
-.bg-all {
-
-}
-
-/* UUID Gradient Background */
-/* UUID Background with Gradient */
-/* UUID Background with Extended White Gradient in the Middle */
-.uuid-color {
-  font-size: 1.3em;
+.attack-amount {
+  margin-top: 10px;
   font-weight: bold;
-  text-align: center;
-  padding: 0.5em 1em;
-
-  /* Gradient background with extended white in the center */
-  background: linear-gradient(90deg,
-    var(--src-color, #4caf50) 0%, /* Start with source color */
-    var(--src-color, #4caf50) 1%, /* Source color fades by 20% */
-    white 30%, /* Start white transition earlier */
-    white 70%, /* Extend white section until 60% */
-    var(--dest-color, #ff5722) 99%, /* Start destination color */
-    var(--dest-color, #ff5722) 100% /* End with destination color */
-  );
-  /* Optional: Rounding for a smoother look */
-  color: #ff0000; /* Set text color to contrast with background */
 }
 
-
-.base-id,
-.player-id,
-.action-id {
-  font-size: 1.1em; /* Increased font size */
-  font-weight: bold; /* Makes the text stand out */
-  color: #333333; /* Darker shade for better contrast */
-  text-align: center; /* Center-align text for uniformity */
-}
-
-/* Progress Bar Container Styling - Full Width and No Rounded Corners */
-.progress-bar-container {
-  width: 100%; /* Take up full width of the parent container */
-  margin: 0; /* Ensure there’s no margin around it */
-  padding: 0; /* Remove any padding */
+.progress-container {
+  padding: 0 20px 20px;
 }
 
 .progress-bar {
-  height: 1.5em; /* Adjust height for visibility */
-  width: 100%; /* Take up full width of the container */
-  overflow: hidden; /* Prevents overflow of inner bar */
-  border: 1px solid black;
-  border-radius: 5px;
+  height: 20px;
+  background: linear-gradient(to right, var(--src-color) 0%, var(--src-color) 1%, white 50%, white 50%, var(--dest-color) 99%, var(--dest-color) 100%);
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 10px 0;
+  border: 1px solid #898989;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4CAF50;
+  transition: width 0.5s ease-in-out;
+}
+
+.progress-text {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.player-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.base-info {
+  font-size: 14px;
+}
+
+.population-info {
+  margin-top: 10px;
+  font-size: 14px;
 }
 
 .progress {
@@ -108,27 +114,3 @@
   width: 0; /* Initial width, to be set dynamically */
   transition: width 0.3s ease-in-out; /* Smooth transition for width */
 }
-
-
-.population-info {
-  font-weight: bold;
-}
-
-.progress-text {
-  font-weight: bold;
-}
-
-.linear {
-  background: linear-gradient(90deg,
-    var(--src-color, #4caf50) 0%, /* Start with source color */
-    var(--src-color, #4caf50) 1%, /* Source color fades by 20% */
-    white 30%, /* Start white transition earlier */
-    white 70%, /* Extend white section until 60% */
-    var(--dest-color, #ff5722) 99%, /* Start destination color */
-    var(--dest-color, #ff5722) 100% /* End with destination color */
-  );
-  /* Optional: Rounding for a smoother look */
-  color: #ff0000; /* Set text color to contrast with background */
-}
-
-

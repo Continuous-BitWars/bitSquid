@@ -38,6 +38,7 @@ export class GameTickService {
 
   fetchData(gameID: number) {
     if (gameID == 0) return;
+    console.log("fetch data game tick")
     axios.get(`https://bitdealer.bitwars.online/games/${gameID}/ticks`)
       .then((response: AxiosResponse<GameState[]>) => {
         let data: GameState[] = response.data;

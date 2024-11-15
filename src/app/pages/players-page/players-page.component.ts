@@ -1,20 +1,19 @@
-import { Component, effect } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ScoreInfoService } from '../../_services/score-info.service';
-import { LeaguePlayerInfoService } from '../../_services/league-info.service';
-import { ScoreInfo } from '../../_models/communication/score.info';
-import { LeagueInfo } from '../../_models/communication/league-info';
+import {Component, effect} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ScoreInfoService} from '../../_services/score-info.service';
+import {LeaguePlayerInfoService} from '../../_services/league-info.service';
+import {ScoreInfo} from '../../_models/communication/score.info';
 
 @Component({
   selector: 'app-players-page',
   standalone: true,
   imports: [CommonModule],
-  providers: [ScoreInfoService, LeaguePlayerInfoService],
   templateUrl: './players-page.component.html',
   styleUrls: ['./players-page.component.scss'],
 })
 export class PlayersPageComponent {
   scoreboard: ScoreInfo[] = [];
+
   //public leagueDataMap: Map<number, LeagueInfo[]> = new Map();
   constructor(
     private scoreInfoService: ScoreInfoService,

@@ -1,27 +1,6 @@
 <app-nav-bar></app-nav-bar>
 <router-outlet></router-outlet>
 <app-dashboard></app-dashboard>
-<app-video-controls></app-video-controls>
 
-<app-live-viewer></app-live-viewer>
 
-<div *ngIf="gameTickService.currentTick() != undefined" style="width: 500px; float: left">
-  <app-base-information *ngFor="let base of gameTickService.currentTick()?.bases"
-                        [base]="base"
-                        [player]="getPlayerByID(base.player)"
-                        [baseLevel]="getBaseLevelByLevel(base.level)">
-  </app-base-information>
-</div>
-<app-game-action>
-</app-game-action>
-<div *ngIf="gameTickService.currentTick() != undefined" style="width: 500px; float: left; margin-left: 10px;">
-  <app-game-action *ngFor="let action of gameTickService.currentTick()?.actions"
-                   [action]="action"
-                   [baseDest]="getBaseByID(action.dest)"
-                   [baseSrc]="getBaseByID(action.src)"
-                   [playerDest]="getPlayerFromBaseByID(action.dest)"
-                   [playerSrc]="getPlayerFromBaseByID(action.src)"
-                   [player]="getPlayerByID(action.player)">
-
-  </app-game-action>
-</div>
+<app-game-details></app-game-details>

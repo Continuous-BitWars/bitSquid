@@ -1,0 +1,13 @@
+<app-video-controls></app-video-controls>
+
+<app-game-details-desktop
+  class="d-none d-sm-block">
+</app-game-details-desktop>
+
+<app-game-details-mobile
+  class="d-block d-sm-none"
+  [gameInfo]="currentGameInfo()"
+  [gameState]="currentTick()"
+></app-game-details-mobile>
+
+

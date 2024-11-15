@@ -1,12 +1,3 @@
 <button *ngFor="let item of gameInfoService.data()" (click)="gameClick(item)">{{item.name}}</button>
-<hr>
-{{gameInfoService.currentGameInfo()?.name}}
-<hr>
-id: {{gameTickService.currentGameID()}}
-<br>
-mode: {{gameTickService.currentMode}}
-<br>
-tickLength: {{gameTickService.currentGameStates.length}}
-<hr>
-{{gameTickService.currentTick() | json}}
+
 
