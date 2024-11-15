@@ -1,4 +1,4 @@
-import {Component, computed} from '@angular/core';
+import {Component, computed, Input, OnInit} from '@angular/core';
 import {GameDetailsDesktopComponent} from './game-details-desktop/game-details-desktop.component';
 import {VideoControlsComponent} from '../video-controls/video-controls.component';
 import {GameDetailsMobileComponent} from './game-details-mobile/game-details-mobile.component';
@@ -25,12 +25,30 @@ import {GameState} from '../_models/game/gameState';
   templateUrl: './game-details.component.html',
   styleUrl: './game-details.component.scss'
 })
-export class GameDetailsComponent {
+export class GameDetailsComponent implements OnInit {
+
+  @Input("gameId") gameId = 0;
+
 
   currentGameInfo = computed(() => this.gameInfoService.currentGameInfo() || <GameInfo>{});
   currentTick = computed(() => this.gameTickService.currentTick() || <GameState>{});
 
-
   constructor(protected gameTickService: GameTickService, protected gameInfoService: GameInfoService) {
+  }
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.updateGameId()
+    }, 100)
+  }
+
+  updateGameId() {
+    if (this.gameInfoService.data().length == 0) {
+      setTimeout(() => {
+        this.updateGameId()
+      }, 100)
+    } else {
+      this.gameInfoService.setGameById(this.gameId)
+    }
   }
 }

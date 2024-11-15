@@ -1,4 +1,7 @@
 <div class="child-container">
-    <h3>Child Component</h3>
-    <p>This component is visible within the sidebar.</p>
-  </div>
+  <app-game-details-mobile
+    [gameInfo]="currentGameInfo()"
+    [gameState]="currentTick()">
+    
+  </app-game-details-mobile>
+</div>

@@ -17,6 +17,10 @@ export class GameInfoService {
     })
   }
 
+  setGameById(id: number) {
+    this.currentGameInfo.set(this.data().find(value => value.id = id))
+  }
+
 
   fetchData() {
     console.log("fetch data game info")
