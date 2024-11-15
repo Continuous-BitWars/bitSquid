@@ -104,7 +104,7 @@ export class ThreeJsBaseService {
         (<any>model).material = (<any>model).material.clone();
         // set color from HEX
 
-        let color = "#00FF00";
+        let color = "#000000";
         let currentTick = this.gameInfoService.currentGameInfo()
         if (currentTick) {
           color = currentTick.players.find(value => value.id == playerId)?.color || color
