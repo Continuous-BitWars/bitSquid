@@ -2,6 +2,7 @@ import {Injectable, signal} from "@angular/core";
 import axios from "axios";
 import {timer} from "rxjs"
 import { PlayerInfo } from "../_models/communication/player-info";
+import { URL } from "../config";
 
 
 @Injectable({
@@ -20,7 +21,7 @@ export class PlayerInfoService {
   
   
     fetchData() {
-      axios.get('https://bitdealer.bitwars.online/players')
+      axios.get(`${URL}/players`)
         .then(response => {
           this.data.set(response.data);
         })

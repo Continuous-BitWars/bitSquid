@@ -19,7 +19,7 @@ export class MapInfoService {
 
 
   fetchData() {
-    axios.get('https://bitdealer.bitwars.online/maps')
+    axios.get(`${URL}/maps`)
       .then(response => {
         this.data.set(response.data);
       })
