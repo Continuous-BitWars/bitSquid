@@ -1,9 +1,11 @@
+
 import {Euler, Vector3} from "three";
 import {ModelType} from "./_models/model/model-type";
 import {Model} from "./_models/model/model";
 
 export const WEB_SOCKET_URL: string = "wss://bitdealer.bitwars.de/live"
 export const GAME_URL: string = "https://bitdealer.bitwars.de/games"
+export const URL: string = "https://bitdealer.bitwars.de"
 
 export const minCameras: number = 1;
 export const maxCameras: number = 9;
@@ -89,4 +91,3 @@ export const modelConfig: Model[] = [
   },
 ]
 
-export const modelFont: string = "./assets/aptos-display-bold.ttf";

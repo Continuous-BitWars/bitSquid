@@ -1,0 +1,127 @@
+    .league-container {
+        margin-top: 10vh;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .player-scores-container {
+        padding: 20px;
+        font-family: Arial, sans-serif;
+        background-color: #2a475e;
+        color: #c7d5e0;
+        border-radius: 10px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .league-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .league-header h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2em;
+        color: #66c0f4;
+        border-bottom: 2px solid #1b2838;
+        padding-bottom: 10px;
+    }
+
+    .league-section {
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .league-section h2 {
+        font-size: 1.5em;
+        color: #66c0f4;
+        border-bottom: 2px solid #1b2838;
+        padding-bottom: 5px;
+        margin-bottom: 15px;
+    }
+
+    .player-list, .map-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .player-list li, .map-list li {
+        background: #1b2838;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #1b2838;
+        border-radius: 4px;
+        color: #c7d5e0;
+    }
+
+    .player-list li a, .map-list li a {
+        color: #66c0f4;
+        text-decoration: none;
+    }
+
+    .player-list li a:hover, .map-list li a:hover {
+        text-decoration: underline;
+    }
+
+    .score-table.player-scores-table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #1b2838;
+        color: #c7d5e0;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .score-table th, .score-table td {
+        padding: 12px 8px;
+        text-align: center;
+        border: 1px solid #1b2838;
+        color: #c7d5e0;
+    }
+
+    .score-table th {
+        background-color: #66c0f4;
+        color: #1b2838;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .score-table tbody tr:nth-child(even) {
+        background-color: #2f3d4a;
+    }
+
+    .score-table tbody tr:nth-child(odd) {
+        background-color: #1b2838;
+    }
+
+    .score-table tbody tr:hover {
+        background-color: #2a475e;
+        cursor: pointer;
+        transform: scale(1.01);
+        transition: all 0.2s ease-in-out;
+    }
+
+    .loading-text {
+        text-align: center;
+        font-size: 1.2em;
+        color: #888;
+    }
+
+    .rank-icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-size: cover;
+    }
+
+    
+    .color-box {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        margin-right: 5px;
+        vertical-align: middle;
+        border: 1px solid #66c0f4;
+        border-radius: 3px;
+    }

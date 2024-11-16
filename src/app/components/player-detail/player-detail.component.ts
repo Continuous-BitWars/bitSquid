@@ -21,7 +21,7 @@ export class PlayerDetailComponent implements OnInit {
   playerId!: string;
   runningGames: GameInfo[] = [];
   oldGames: GameInfo[] = [];
-  upcomingGames: GameInfo[] = [];
+  upcomingGames: GameInfo[] = []; 
   constructor(
     private route: ActivatedRoute,
     private scoreInfoService: ScoreInfoService

@@ -1,0 +1,38 @@
+<div class="league-container" *ngIf="leagueData() as data; else loading">
+  
+  
+    <!-- Players List -->
+
+
+    <div class="league-section">
+        <h2>Scores</h2>
+        <table class="score-table player-scores-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player Name</th>
+                    <th>Score</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let score of data.scores; let i = index">
+                    <td>
+                        <span *ngIf="i === 0" class="fas fa-trophy" style="color: gold;"></span>
+                        <span *ngIf="i === 1" class="fas fa-trophy" style="color: silver;"></span>
+                        <span *ngIf="i === 2" class="fas fa-trophy" style="color: #cd7f32;"></span>
+                        <span *ngIf="i > 2">{{ i + 1 }}</span>
+                    </td>
+                    <td>{{ score.player.name }}</td>
+                    <td>{{ score.score }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+  
+  
+  <!-- Loading Indicator -->
+  <ng-template #loading>
+    <p class="loading-text">Loading league data...</p>
+  </ng-template>
+  

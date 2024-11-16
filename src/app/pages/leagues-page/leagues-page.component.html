@@ -2,8 +2,8 @@
   <h1>Leagues</h1>
   <div class="leagues-card-container">
     <div class="league-card" *ngFor="let league of games">
-      <div class="league-card-header">
-        <h3>{{ league.name }}</h3>
+      <div class="league-card-header" (click)="onLeagueRowClick(league.id)">
+        <h3 [routerLink]="['/leagues', league.id, 'scoreboard']" routerLinkActive="active">{{ league.name }}</h3>
       </div>
       <div class="league-card-body">
         <p>Status: {{ league.status }}</p>
