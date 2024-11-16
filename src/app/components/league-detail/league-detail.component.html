@@ -1,50 +1,38 @@
-<div class="container">
-  <div class="league-container">
-    <div *ngIf="leagueData; else loading" class="league-details">
-      <h2 class="league-title">{{ leagueData.league.name }}</h2>
-      <p>Status: <span class="league-status">{{ leagueData.league.status }}</span></p>
-      <p>Total Games: <span class="league-info">{{ leagueData.league.game_count }}</span></p>
-      <p>Parallel Games: <span class="league-info">{{ leagueData.league.parallel_games }}</span></p>
-      <p>Default Time Between Ticks: <span class="league-info">{{ leagueData.league.default_time_between_ticks }}</span> seconds</p>
+<div class="league-container" *ngIf="leagueData() as data; else loading">
+  
+  
+    <!-- Players List -->
 
-    
 
-      <!-- Scores -->
-      <h3>Scores</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Player Name</th>
-            <th>Score</th>
-            <th>Wins By Place</th>
-            <th>Open Games Count</th>
-            <th>Color</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let score of leagueData.scores">
-            <td>{{ score.player.name }}</td>
-            <td>{{ score.score }}</td>
-            <td>
-              <span *ngFor="let place of getKeys(score.wins_by_place)">
-                Place {{ place }}: {{ score.wins_by_place[place] }}<br />
-              </span>
-            </td>
-            <td>{{ score.open_games_count }}</td>
-            <td>
-              <span class="color-box" [style.background]="score.player.color"></span>
-              {{ score.player.color }}
-            </td>
-
-          </tr>
-        </tbody>
-      </table>
+    <div class="league-section">
+        <h2>Scores</h2>
+        <table class="score-table player-scores-table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player Name</th>
+                    <th>Score</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let score of data.scores; let i = index">
+                    <td>
+                        <span *ngIf="i === 0" class="fas fa-trophy" style="color: gold;"></span>
+                        <span *ngIf="i === 1" class="fas fa-trophy" style="color: silver;"></span>
+                        <span *ngIf="i === 2" class="fas fa-trophy" style="color: #cd7f32;"></span>
+                        <span *ngIf="i > 2">{{ i + 1 }}</span>
+                    </td>
+                    <td>{{ score.player.name }}</td>
+                    <td>{{ score.score }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-
-    <ng-template #loading>
-      <div class="loading-container">
-        <p>Loading league data...</p>
-      </div>
-    </ng-template>
-  </div>
 </div>
+  
+  
+  <!-- Loading Indicator -->
+  <ng-template #loading>
+    <p class="loading-text">Loading league data...</p>
+  </ng-template>
+  

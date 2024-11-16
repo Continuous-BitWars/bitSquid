@@ -2,6 +2,7 @@ import {Injectable, signal} from "@angular/core";
 import axios from "axios";
 import {timer} from "rxjs"
 import { LeagueInfo } from "../_models/communication/league-info";
+import { LeagueScoreInfo } from "../_models/communication/league-score-info";
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +29,18 @@ export class LeagueInfoService {
           console.error('Error fetching data:', error);
         });
     }
+
+
+    async fetchLeagueDataByLeagueId(leagueId: number): Promise<LeagueScoreInfo> {
+      try {
+        const response = await axios.get(`https://bitdealer.bitwars.de/leagues/${leagueId}/scoreboard`);
+        console.log("Raw API Response:", response.data);
+        return response.data; // Adjust this if your API returns a different structure
+      } catch (error) {
+        console.error("Error fetching league data:", error);
+        throw error;
+      }
+    }
   }
 
 
@@ -50,17 +63,8 @@ export class LeagueInfoService {
       }
     }
 
-
-    async fetchLeagueDataByPlayerId(leagueId: number): Promise<LeagueInfo[]> {
-      try {
-          const response = await axios.get(`https://bitdealer.bitwars.de/leagues/${leagueId}/scoreboard`);
-          console.log("Raw API Response:", response.data);
-          return response.data; // Return the array directly
-      } catch (error) {
-          console.error("Error fetching league data:", error);
-          throw error;
-      }
-  }
+    
+    
   
 
 

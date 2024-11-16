@@ -1,7 +1,9 @@
 .container{
-  margin-top: 10vh;
+  margin-top: 13vh;
 }
-
+.score-table td {
+  color: #c7d5e0; /* Explicitly set the text color for <td> elements */
+}
 .player-scores-container {
   padding: 20px;
   font-family: Arial, sans-serif;

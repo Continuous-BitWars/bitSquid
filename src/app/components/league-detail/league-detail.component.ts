@@ -1,91 +1,71 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LeaguePlayerInfoService } from '../../_services/league-info.service';
+import { LeagueScoeboardService } from '../../_services/league-scoreboard.service';
+import { LeagueScoreInfo } from '../../_models/communication/league-score-info';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-league-detail',
+  standalone: true,
   templateUrl: './league-detail.component.html',
   styleUrls: ['./league-detail.component.scss'],
-  standalone: true,
-  imports:[CommonModule]
+  imports: [CommonModule],
 })
 export class LeagueDetailComponent implements OnInit {
-  leagueData: any; // Holds the fetched league data
-  leagueId!: string;
+  leagueData = signal<LeagueScoreInfo | undefined>(undefined); // Changed from LeagueScoreInfo[] to LeagueScoreInfo | undefined
+  leagueId!: number;
+  objectKeys = Object.keys; // Helper to iterate over object keys in the template
 
   constructor(
-    private route: ActivatedRoute,
-    private leagueInfoService: LeaguePlayerInfoService
+    private leagueInfoService: LeagueScoeboardService,
+    private route: ActivatedRoute
   ) {}
 
-  async getLeagueData() {
-    if (this.leagueId) {
+  async ngOnInit() {
+    // Retrieve the leagueId from the route parameters
+    const idParam = this.route.snapshot.paramMap.get('leagueId');
+    if (idParam) {
+      this.leagueId = +idParam;
+      console.log('Retrieved leagueId:', this.leagueId);
+
       try {
-        // Fetch data based on leagueId
-        this.leagueData = await this.leagueInfoService.fetchLeagueDataByPlayerId(parseInt(this.leagueId, 10));
-        console.log('Fetched League Data:', this.leagueData);
+        // Fetch league data by ID
+        const data = await this.leagueInfoService.fetchLeagueDataByLeagueId(this.leagueId);
+        // Update the component's state with the fetched data
+        this.leagueData.set(data);
+        console.log('League data loaded in detail:', data);
       } catch (error) {
-        console.error('Error fetching league data:', error);
+        console.error('Error loading league data:', error);
       }
     } else {
-      console.error('League ID is undefined or invalid');
+      console.error('No leagueId found in route parameters.');
     }
   }
 
-  ngOnInit() {
-    // Extract leagueId from the route
-    this.leagueId = this.route.snapshot.paramMap.get('id')!;
-    if (this.leagueId) {
-      this.getLeagueData();
-    } else {
-      console.error('No league ID found in route params.');
-    }
-  }
-
-  getKeys(obj: object): string[] {
+  // Helper method to get object keys
+  getObjectKeys(obj: any): string[] {
     return Object.keys(obj);
   }
 }
 
 
-
-
-/*  <!-- Maps -->
-      <h3>Maps</h3>
-      <ul class="map-list">
-        <li *ngFor="let map of leagueData.league.maps">
-          {{ map.name }} (Max Players: {{ map.max_player_count }})
-        </li>
-      </ul>
-      
-      
-      
-      
-      
-      
-      <!-- Players -->
-      <h3>Players</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Color</th>
-            <th>Provider URL</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let player of leagueData.league.players">
-            <td>{{ player.name }}</td>
-            <td>
-              <span class="color-box" [style.background]="player.color"></span>
-              {{ player.color }}
-            </td>
-            <td>
-              <a [href]="player.provider_url" target="_blank" class="player-url">{{ player.provider_url }}</a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      */
+/*<h2>Maps</h2>
+    <table class="league-table">
+      <thead>
+        <tr>
+          <th>Map ID</th>
+          <th>Name</th>
+          <th>Max Player Count</th>
+          <th>Provider URL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let map of data.league.maps">
+          <td>{{ map.id }}</td>
+          <td>{{ map.name }}</td>
+          <td>{{ map.max_player_count }}</td>
+          <td><a [href]="map.provider_url" target="_blank">{{ map.provider_url }}</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div> */

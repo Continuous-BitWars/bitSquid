@@ -1,3 +1,4 @@
+// leagues-page.component.ts
 import { Component, effect } from '@angular/core';
 import { LeagueInfoService } from '../../_services/league-info.service';
 import { CommonModule } from '@angular/common';
@@ -7,25 +8,23 @@ import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-leagues-page',
   standalone: true,
-  imports: [CommonModule,RouterLink],
+  imports: [CommonModule, RouterLink],
   templateUrl: './leagues-page.component.html',
-  styleUrls: ['./leagues-page.component.scss']
+  styleUrls: ['./leagues-page.component.scss'],
 })
 export class LeaguesPageComponent {
-
   games: LeagueInfo[] = [];
-  selectedLeague: LeagueInfo | null = null; // Store selected league for toggling
-  visibilityState: { [key: number]: { players: boolean, maps: boolean } } = {}; // New state for visibility
+  visibilityState: { [key: number]: { players: boolean; maps: boolean } } = {}; // New state for visibility
 
-  constructor(private leagueInfoService: LeagueInfoService,private router: Router) {
+  constructor(private leagueInfoService: LeagueInfoService, private router: Router) {
     effect(() => {
       this.games = this.leagueInfoService.data();
       console.log('Games data loaded:', this.games); // Log games data
     });
   }
 
-  gameClick(item: LeagueInfo) {
-    this.leagueInfoService.currentGameInfo.set(item);
+  onLeagueRowClick(leagueId: number) { // Renamed for clarity
+    this.router.navigate(['/leagues', leagueId, 'scoreboard']); // Removed leading slash before 'scoreboard'
   }
 
   // Toggle the "Players" or "Maps" section
@@ -43,8 +42,4 @@ export class LeaguesPageComponent {
   isSectionExpanded(league: LeagueInfo, section: 'players' | 'maps'): boolean {
     return this.visibilityState[league.id]?.[section] ?? false; // Default to false if not set
   }
-
-  onPlayerRowClick(leagueId: number) {
-    this.router.navigate(['/leagues', leagueId, '/scoreboard']);
-}
 }

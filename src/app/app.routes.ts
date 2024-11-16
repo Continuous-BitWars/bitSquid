@@ -33,7 +33,7 @@ export const routes: Routes = [
         component:LeaguesPageComponent
     },
     {
-        path:'leagues/:id/scoreboard',
+        path:'leagues/:leagueId/scoreboard',
         component:LeagueDetailComponent
     },
     {

@@ -53,5 +53,5 @@ export class ScoreInfoService {
       console.error('Error fetching league data:', error);
       return [];
     }
-  }
+  } 
 }
