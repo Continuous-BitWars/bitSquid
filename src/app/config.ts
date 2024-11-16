@@ -1,4 +1,3 @@
-
 import {Euler, Vector3} from "three";
 import {ModelType} from "./_models/model/model-type";
 import {Model} from "./_models/model/model";
@@ -91,3 +90,4 @@ export const modelConfig: Model[] = [
   },
 ]
 
+export const modelFont: string = "./assets/aptos-display-bold.ttf";
