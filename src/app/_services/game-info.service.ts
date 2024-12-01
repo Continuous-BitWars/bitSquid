@@ -19,7 +19,7 @@ export class GameInfoService {
 
 
   fetchData() {
-    axios.get('https://bitdealer.bitwars.online/games')
+    axios.get('https://bitdealer.bitwars.de/games')
       .then(response => {
         this.data.set(response.data);
       })
