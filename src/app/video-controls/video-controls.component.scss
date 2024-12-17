@@ -1,6 +1,6 @@
 .video-controls {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
+  background: #343a40; /* Bootstrap dark background color */
+  border: 1px solid #495057; /* Darker border to match bg-dark */
   border-radius: 8px;
   padding: 8px;
 
@@ -8,54 +8,58 @@
   .right-controls {
     display: flex;
     align-items: center;
+    gap: 10px; /* Add spacing between elements */
   }
 
   .playback-controls .btn,
   .right-controls .btn,
   .quality-select {
-    font-size: 24px;
-    height: 48px;
-    background: #f8f9fa;
+    font-size: 18px; /* Slightly smaller for better aesthetics */
+    height: 40px;
+    background: #343a40; /* Bootstrap secondary color */
     border: none;
     border-radius: 4px;
-    color: #007bff;
+    color: #f8f9fa; /* Light text color for contrast */
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s, transform 0.2s;
   }
 
   .playback-controls .btn:hover,
   .right-controls .btn:hover {
-    background: #e0e0e0;
-    color: #0056b3;
+    background: #495057; /* Darker shade for hover effect */
+    color: #ffffff; /* White text on hover */
+    transform: scale(1.05); /* Slight zoom effect */
   }
 
   .tick-display {
     font-size: 14px;
-    color: #666;
+    color: #adb5bd; /* Muted text color */
     width: 70px;
     text-align: center;
     padding: 4px;
-    border: 1px solid #ccc;
+    border: 1px solid #6c757d;
     border-radius: 4px;
+    background: #212529; /* Darker background */
   }
 
   .quality-select {
     width: 140px;
-    height: 48px;
-    border: 1px solid #ccc;
+    height: 40px;
+    border: 1px solid #495057;
     border-radius: 4px;
-    background: #ffffff;
+    background: #212529; /* Matches dark mode */
     padding: 4px 12px;
-    font-size: 20px;
-    color: #333;
-    transition: border-color 0.3s;
+    font-size: 16px;
+    color: #f8f9fa;
+    transition: border-color 0.3s, background 0.3s;
   }
 
   .quality-select:hover,
   .quality-select:focus {
-    border-color: #007bff;
+    border-color: #17a2b8; /* Bootstrap info color */
+    background: #000000;
   }
 
   /* Responsive adjustments for smaller screens */
