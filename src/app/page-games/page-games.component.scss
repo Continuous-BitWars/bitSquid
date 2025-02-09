@@ -1,93 +1,230 @@
-/* General container */
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
 .container {
-  font-family: 'Poppins', sans-serif; /* Nice sans-serif font */
-  color: #ddd;
-  padding: 2rem;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  background-size: cover;
+  max-width: 1200px;
+  padding: 3rem 1rem;
+
+  h1 {
+    color: $white;
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    margin-bottom: 3rem;
+    text-align: center;
+    background: linear-gradient(to right, #60a5fa, #34d399);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(96, 165, 250, 0.2);
+  }
 }
 
-/* Heading styles */
-h2 {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #ffffff;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-/* Tabs styling */
-.nav-tabs {
-  border-bottom: none;
-}
-
-.nav-tabs .nav-link {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #bbb; /* Lighter gray for inactive tabs */
-  border: none;
-  background: transparent;
-  transition: color 0.3s ease;
-}
-
-.nav-tabs .nav-link.active {
-  color: #00bfff; /* Brighter blue for active tabs */
-  border-bottom: 2px solid #00bfff;
-}
-
-/* Brighter Card styling */
-.card-dark {
-  background: #2b2b3b; /* Lighter dark color for the card */
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Depth for the card */
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Card Title */
-.card-title {
-  font-size: 1.5rem;
-  font-weight: 700; /* Bold font for emphasis */
-  color: #00bfff; /* Brighter cyan blue */
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-/* Card Text */
-.card-text {
-  font-size: 1rem;
-  color: #f5f5f5; /* Light gray for the text inside the card */
-  text-align: justify;
-  flex-grow: 1;
-}
-
-/* Button styling */
-.btn-outline-primary {
-  color: #00bfff; /* Brighter cyan blue */
-  border: 1px solid #00bfff;
+.status-tabs {
+  background: rgba($gray-800, 0.6);
+  backdrop-filter: blur(12px);
   border-radius: 20px;
-  padding: 0.5rem 1rem;
-  transition: background-color 0.3s, color 0.3s;
+  padding: 1.25rem;
+  display: inline-flex;
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+  border: 1px solid rgba($white, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+
+  .status-tab {
+    padding: 1.25rem 2.5rem;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 1.125rem;
+    color: $gray-300;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, rgba($white, 0.1), rgba($white, 0.05));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover:not(.active) {
+      background-color: rgba($gray-700, 0.5);
+      border-color: rgba($white, 0.1);
+      transform: translateY(-2px);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &.active {
+      transform: translateY(-2px);
+
+      &:nth-child(1) {
+        background: linear-gradient(135deg, #34d399, #10b981);
+        color: $white;
+        box-shadow: 0 8px 24px rgba(52, 211, 153, 0.25);
+      }
+
+      &:nth-child(2) {
+        background: linear-gradient(135deg, #fbbf24, #d97706);
+        color: $white;
+        box-shadow: 0 8px 24px rgba(251, 191, 36, 0.25);
+      }
+
+      &:nth-child(3) {
+        background: linear-gradient(135deg, #f87171, #dc2626);
+        color: $white;
+        box-shadow: 0 8px 24px rgba(248, 113, 113, 0.25);
+      }
+    }
+  }
 }
 
-.btn-outline-primary:hover {
-  background-color: #00bfff; /* Brighter cyan blue on hover */
-  color: #fff;
-  border: 1px solid #00bfff;
-}
+.game-card {
+  background: rgba($gray-800, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 2rem;
+  height: 100%;
+  border: 1px solid rgba($white, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 
-/* Responsive layout */
-@media (max-width: 768px) {
-  .card-body {
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    border-color: rgba($white, 0.2);
+  }
+
+  .game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .game-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $white;
+      margin: 0;
+      letter-spacing: -0.025em;
+    }
+  }
+
+  .game-status {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+  }
+
+  .game-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: $gray-300;
+    font-size: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba($white, 0.1);
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    i {
+      font-size: 1.25rem;
+      background: linear-gradient(135deg, #60a5fa, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .btn-details {
+    margin-top: 2rem;
+    width: 100%;
     padding: 1rem;
+    background: linear-gradient(135deg, rgba($primary, 0.1), rgba($primary, 0.05));
+    border: 1px solid rgba($primary, 0.2);
+    border-radius: 12px;
+    color: $white;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    z-index: 1; /* Keep the button above */
+
+    /* Ensure text stays on top */
+    span {
+      position: relative;
+      z-index: 2;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #60a5fa, #3b82f6);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1; /* Push ::before behind everything */
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      border-color: $primary;
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);
+
+      &::before {
+        opacity: 1;
+      }
+    }
   }
-  .card-title {
-    font-size: 1.3rem;
+}
+
+.status-live {
+  background: linear-gradient(135deg, rgba(#34d399, 0.2), rgba(#10b981, 0.2));
+  color: #34d399;
+}
+
+.status-pending {
+  background: linear-gradient(135deg, rgba(#fbbf24, 0.2), rgba(#d97706, 0.2));
+  color: #fbbf24;
+}
+
+.status-done {
+  background: linear-gradient(135deg, rgba(#f87171, 0.2), rgba(#dc2626, 0.2));
+  color: #f87171;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
   }
-  .card-text {
-    font-size: 0.9rem;
+
+  .status-tabs {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }

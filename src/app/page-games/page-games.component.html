@@ -1,33 +1,55 @@
-<div class="container mt-4">
-  <h2 class="text-center mb-4 display-4 text-glow">Game Overview</h2>
+<div class="container">
 
-  <!-- Tabs for filtering games -->
-  <ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" [class.active]="currentTab === 'live'" (click)="currentTab = 'live'"
-         href="javascript:void(0)">Live</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" [class.active]="currentTab === 'pending'" (click)="currentTab = 'pending'"
-         href="javascript:void(0)">Pending</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link" [class.active]="currentTab === 'done'" (click)="currentTab = 'done'"
-         href="javascript:void(0)">Done</a>
-    </li>
-  </ul>
+  <div class="d-flex justify-content-center sticky-top">
+    <div class="status-tabs">
+      <button
+        class="status-tab"
+        [class.active]="status === 'live'"
+        (click)="selectStatus('live')"
+      >
+        Live Games
+      </button>
+      <button
+        class="status-tab"
+        [class.active]="status === 'pending'"
+        (click)="selectStatus('pending')"
+      >
+        Pending
+      </button>
+      <button
+        class="status-tab"
+        [class.active]="status === 'done'"
+        (click)="selectStatus('done')"
+      >
+        Completed
+      </button>
+    </div>
+  </div>
 
-  <!-- Game cards section -->
-  <div class="row mt-4">
-    <div *ngFor="let game of games" class="col-md-4 mb-4">
-      <div class="card shadow-sm border-0 rounded h-100 card-dark">
-        <div class="card-body d-flex flex-column justify-content-between">
-          <h5 class="card-title text-primary-glow mb-3">{{ game.name }}</h5>
-          <p class="card-text text-muted flex-grow-1">{{ game.description }}</p>
-          <div class="text-end">
-            <button class="btn btn-outline-primary btn-sm">View Details</button>
-          </div>
+  <div class="row g-4 mt-2">
+    <div class="col-md-6" *ngFor="let game of filteredGames">
+      <div class="game-card">
+        <div class="game-header">
+          <h3 class="game-title">Game {{ game.id }}</h3>
+          <span class="game-status" [class]="'status-' + game.status">
+            {{ game.status }}
+          </span>
         </div>
+        <div class="game-info">
+          <i class="bi bi-people-fill"></i>
+          <span>{{ game.players }} Players</span>
+        </div>
+        <div class="game-info">
+          <i class="bi bi-map-fill"></i>
+          <span>{{ game.map }}</span>
+        </div>
+        <div class="game-info">
+          <i class="bi bi-clock-fill"></i>
+          <span>{{ game.time }}</span>
+        </div>
+        <button class="btn btn-details">
+          View Game
+        </button>
       </div>
     </div>
   </div>
