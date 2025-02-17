@@ -1,42 +1,75 @@
-<div *ngIf="action && player && baseSrc && playerDest && playerSrc && baseDest"
-     class="container bg-all text-center my-3 border border-2 rounded-2 shadow-lg">
-  <div class="row">
-    <div class="uuid-color linear col-12 py-1 "
-         [ngStyle]="{ '--src-color': playerSrc.color, '--dest-color': playerDest.color }">
-      {{action.uuid}}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-4 bg-color-src p-3 h-3 "
-         [ngStyle]="{ '--player-color': playerSrc.color }">
-      <div class="base-id">({{player.id}}) {{player.name}}</div>
-      <div class="player-id">({{baseSrc.uid}}) {{baseSrc.name}}
-        [{{baseSrc.position.x}}|{{baseSrc.position.y}}|{{baseSrc.position.z}}]
+<div *ngIf="action && player && baseSrc && playerDest && playerSrc && baseDest">
+  <div class="transfer-container">
+    <div class="transfer-card">
+      <!-- UUID Header -->
+      <div class="uuid-header" [ngStyle]="{'--src-color': playerSrc.color, '--dest-color': playerDest.color}">
+        <div class="uuid-text">{{action.uuid}}</div>
+        <div class="uuid-overlay"></div>
       </div>
-    </div>
-    <div class="col-4 arrow-container">
-      <div class="arrow">→</div>
-      <div class="arrow-text arrow-bottom">{{action.amount}}</div>
-    </div>
-    <div class="col-4 bg-color-dest p-3 h-3 "
-         [ngStyle]="{ '--player-color': playerDest.color }">
-      <div class="action-id">({{playerDest.id}}) {{playerDest.name}}</div>
-      <div class="player-id">({{baseDest.uid}}) {{baseDest.name}}
-        [{{baseDest.position.x}}|{{baseDest.position.y}}|{{baseDest.position.z}}]
+
+      <!-- Main Content -->
+      <div class="content-grid">
+        <!-- Source -->
+        <div class="player-card source" [ngStyle]="{'--player-color': playerSrc.color}">
+          <div class="player-name">
+            <div class="color-dot"></div>
+            ({{player.id}}) {{player.name}}
+          </div>
+          <div class="base-info">
+            <i class="bi bi-crown"></i>
+            ({{baseSrc.uid}}) {{baseSrc.name}}
+          </div>
+          <div class="coordinates">
+            <i class="bi bi-geo-alt"></i>
+            [{{baseSrc.position.x}}|{{baseSrc.position.y}}|{{baseSrc.position.z}}]
+          </div>
+        </div>
+
+        <!-- Arrow -->
+        <div class="arrow-container">
+          <div class="arrow-overlay"></div>
+          <i class="bi bi-arrow-right"></i>
+          <div class="amount-text">
+            <i class="bi bi-people"></i>
+            {{action.amount}}
+          </div>
+        </div>
+
+        <!-- Destination -->
+        <div class="player-card destination" [ngStyle]="{'--player-color': playerDest.color}">
+          <div class="player-name">
+            <div class="color-dot"></div>
+            ({{playerDest.id}}) {{playerDest.name}}
+          </div>
+          <div class="base-info">
+            <i class="bi bi-crown"></i>
+            ({{baseDest.uid}}) {{baseDest.name}}
+          </div>
+          <div class="coordinates">
+            <i class="bi bi-geo-alt"></i>
+            [{{baseDest.position.x}}|{{baseDest.position.y}}|{{baseDest.position.z}}]
+          </div>
+          <div class="stats">
+          <span class="stat">
+            <i class="bi bi-people"></i>
+            {{baseDest.population}}
+          </span>
+            <span class="stat">
+            <i class="bi bi-crown"></i>
+            Level {{baseDest.level}}
+          </span>
+          </div>
+        </div>
       </div>
-      <div class="population-info">
-        {{baseDest.population}} | {{baseDest.level}}
-      </div>
-    </div>
-  </div>
-  <div class="row ">
-    <div class="col-12 linear progress-bar-container  px-4"
-         [ngStyle]="{
-      'background': 'linear-gradient(90deg, ' + playerSrc.color + ' 0%, ' + playerSrc.color + ' 1%, white 30%, white 70%, ' + playerDest.color + ' 99%, ' + playerDest.color + ' 100%)'
-      }">
-      <div class="progress-text">{{ attackProgressText }}</div>
-      <div class="progress-bar">
-        <div class="progress" [style.width.%]="attackPercentage"></div>
+
+      <!-- Progress Bar -->
+      <div class="progress-section" [ngStyle]="{'--src-color': playerSrc.color, '--dest-color': playerDest.color}">
+        <div class="progress-text">{{attackProgressText}}</div>
+        <div class="progress-bar">
+          <div class="progress-fill" [style.width.%]="attackPercentage">
+            <div class="shimmer"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

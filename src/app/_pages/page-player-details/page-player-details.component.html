@@ -1,0 +1,79 @@
+<ng-container *ngIf="score">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="profile-header">
+          <div class="profile-avatar" [style.background]="score.player.color"></div>
+          <div class="profile-details">
+            <h1 class="player-name">{{ score.player.name }}</h1>
+            <p class="player-id">Player ID: {{ score.player.id  }}</p>
+          </div>
+        </div>
+        <div class="spacer"></div>
+        <div>
+          <div class="row">
+            <div class="col-6">
+              <div class="grid-item">
+                <h3>Score</h3>
+                <h1>{{ score.score || 0 }}</h1>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="grid-item">
+                <h3>Open Games</h3>
+                <h1>{{ score.open_games_count || 0 }}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="spacer"></div>
+        <div>
+          <div class="row">
+            <div class="col-3">
+              <div class="grid-item">
+                <h3>🏆 First Place</h3>
+                <h3>(8 Points)</h3>
+                <h1>{{ score.wins_by_place["1"] || 0 }}</h1>
+
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="grid-item">
+                <h3>🥈 Second Place</h3>
+                <h3>(5 Points)</h3>
+                <h1>{{ score.wins_by_place["2"] || 0 }}</h1>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="grid-item">
+                <h3>🥉 Third Place</h3>
+                <h3>(3 Points)</h3>
+                <h1>{{ score.wins_by_place["3"] || 0 }}</h1>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="grid-item">
+                <h3>🎮 Rest Places</h3>
+                <h3>(0 Points)</h3>
+                <h1>{{ score.wins_by_place["4"] || 0 }}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <app-league-list [leagues]="leagues"></app-league-list>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <app-games-list [games]="games"></app-games-list>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+

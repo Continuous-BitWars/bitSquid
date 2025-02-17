@@ -13,12 +13,14 @@ import {GameActionComponent} from './game-action/game-action.component';
 import {Base} from './_models/game/base';
 import {LiveViewerComponent} from './live-viewer/live-viewer.component';
 import {NavbarComponent} from './navbar/navbar.component';
-import {PageGamesComponent} from './page-games/page-games.component';
+import {PageGamesComponent} from './_pages/page-games/page-games.component';
+import {PageLeagueComponent} from './_pages/page-league/page-league.component';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DashboardComponent, VideoControlsComponent, BaseInformationComponent, NgFor, GameActionComponent, NgIf, LiveViewerComponent, NavbarComponent, PageGamesComponent],
+  imports: [RouterOutlet, DashboardComponent, VideoControlsComponent, BaseInformationComponent, NgFor, GameActionComponent, NgIf, LiveViewerComponent, NavbarComponent, PageGamesComponent, PageLeagueComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

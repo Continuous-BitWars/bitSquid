@@ -1,11 +1,10 @@
 <div class="player-info-card" *ngIf="base && player && baseLevel ">
-  <!-- Player Box with ID and Name -->
   <div class="player-header"
        [ngStyle]="{ '--player-color': player.color }">
     <div class="player-id">{{base.uid}}</div>
     <div class="player-name">
       <span>({{player.id}}) {{player.name}}</span>
-      <div class="base-name">Basisname:{{base.name}}</div> <!-- Added Base Name here -->
+      <div class="base-name">Basisname:{{base.name}}</div>
     </div>
     <div class="player-coordinates">
       <div>X: {{base.position.x}}</div>
@@ -13,7 +12,6 @@
       <div>Z: {{base.position.z}}</div>
     </div>
   </div>
-  <!-- Player Stats -->
   <div class="player-stats">
     <div>Population: <strong>{{base.population}} / {{baseLevel.maxPopulation}} (+{{baseLevel.spawnRate}})</strong></div>
     <div>Level: <strong>{{base.level}}</strong></div>

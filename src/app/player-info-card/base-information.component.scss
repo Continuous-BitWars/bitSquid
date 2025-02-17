@@ -1,63 +1,137 @@
+:host {
+  display: block;
+  padding: 20px;
+  background-color: #212529; /* Base background color */
+  background-image: radial-gradient(circle at 50% 50%, var(--player-color) 0%, transparent 50%),
+  radial-gradient(circle at 100% 0%, var(--player-color) 0%, transparent 50%);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .player-info-card {
-  width: 100%; /* Full width */
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
+  width: 100%;
+  border: 1px solid var(--player-color);
+  border-radius: 16px;
   overflow: hidden;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
   color: #ffffff;
   position: relative;
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3),
+  0 0 0 1px var(--player-color),
+  inset 0 0 32px var(--player-color);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 10px auto;
+}
+
+.player-info-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+  0 0 0 1px var(--player-color),
+  inset 0 0 48px var(--player-color);
 }
 
 .player-header {
   display: flex;
   align-items: center;
-  padding: 10px;
-  color: #000000;
-  background: linear-gradient(to bottom, var(--player-color), rgb(255, 255, 255) 75%, transparent 100%);
+  padding: 20px;
+  background: var(--player-color);
+  position: relative;
+  gap: 15px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Player ID box */
 .player-id {
-  background-color: #ffffff;
-  color: #000000;
-  min-width: 60px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  min-width: 70px;
   text-align: center;
-  font-weight: bold;
-  font-size: 1.5em;
-  padding: 5px 10px;
-  border-radius: 3px;
-  margin-right: 10px;
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding: 10px 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2),
+  inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  letter-spacing: 0.5px;
 }
 
-/* Player Name */
 .player-name {
   flex-grow: 1;
+  color: #fff;
+  font-weight: 500;
 }
 
-/* Base Name below Player Name */
-.base-name {
-  font-size: 0.9em;
-  color: #000000;
-}
-
-/* Coordinates */
-.player-coordinates {
-  font-size: 0.8em;
-  text-align: right;
-}
-
-/* Player Stats */
-.player-stats {
-  background-color: rgba(255, 255, 255, 0.8); /* Dark background for readability */
-  padding: 10px;
-  font-size: 1em;
-  color: #000000;
-  position: relative;
+.player-name span {
+  font-size: 1.2rem;
+  display: block;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.5px;
+  max-width: 15ch; /* Max 15 characters */
+  white-space: nowrap;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+.base-name {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.player-coordinates {
+  font-size: 0.9rem;
+  text-align: right;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 10px 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2),
+  inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.5px;
+}
+
+.player-stats {
+  background: rgba(26, 26, 26, 0.95);
+  padding: 20px;
+  font-size: 1rem;
+  color: #fff;
+  display: grid;
+  gap: 12px;
+  position: relative;
+  border-top: 1px solid var(--player-color);
+}
+
+.player-stats div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.3px;
+}
 
 .player-stats strong {
-  font-weight: bold;
-  color: #000000;
+  font-weight: 600;
+  color: var(--player-color);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  border-radius: 8px;
+  min-width: 100px;
+  text-align: right;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1),
+  inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+.player-stats div:hover strong {
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateX(-4px);
 }

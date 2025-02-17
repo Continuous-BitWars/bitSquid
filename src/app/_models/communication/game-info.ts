@@ -1,9 +1,10 @@
 import {Player} from "../game/player";
+import {GameMap} from '../api/map.model';
 
 export enum Status {
-  running = "running", // neue Ticks über Websocket wenn letzter Tick automatisch auf Live
+  running = "running",
   stopped = "stopped",
-  done = "done", // kommt kein tick mehr
+  done = "done",
 }
 
 export interface GameInfo {
@@ -12,7 +13,8 @@ export interface GameInfo {
   players: Player[],            // list of all players participating
   game_options: {
     time_between_ticks: number, // time between ticks
-  }
+  },
+  game_map: GameMap,
   status: Status,               // current game.ts status
   round_number: number,         // current game.ts tick
 }

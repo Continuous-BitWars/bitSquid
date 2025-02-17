@@ -1,0 +1,115 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+
+.league-card {
+  background: rgba($gray-800, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba($white, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  
+
+  .league-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $white;
+      margin: 0;
+    }
+
+    .status {
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      border-radius: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .status-pending {
+      background: linear-gradient(135deg, rgba(#60a5fa, 0.2), rgba(#3b82f6, 0.2));
+      color: #60a5fa;
+    }
+
+    .status-completed {
+      background: linear-gradient(135deg, rgba(#34d399, 0.2), rgba(#10b981, 0.2));
+      color: #34d399;
+    }
+
+    .status-stopped {
+      background: linear-gradient(135deg, rgba(#f87171, 0.2), rgba(#dc2626, 0.2));
+      color: #f87171;
+    }
+  }
+
+  .league-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: $gray-300;
+      font-size: 0.9375rem;
+
+      i {
+        font-size: 1.25rem;
+        background: linear-gradient(135deg, #60a5fa, #3b82f6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
+  }
+
+  .league-actions {
+    display: flex;
+    justify-content: center;
+
+    .btn-details {
+      background: linear-gradient(135deg, #60a5fa, #3b82f6);
+      color: $white;
+      padding: 0.75rem 2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      border: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem;
+  }
+
+  .header {
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+  }
+
+  .leagues-grid {
+    grid-template-columns: 1fr;
+  }
+}

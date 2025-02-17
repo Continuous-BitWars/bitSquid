@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-12">
+      <app-league-details [league]="league"></app-league-details>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-player-scoreboard [scores]="scores"></app-player-scoreboard>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <app-maps-list [maps]="league.maps"></app-maps-list>
+    </div>
+    <div class="col-12">
+      <app-games-list [games]="games"></app-games-list>
+    </div>
+  </div>
+
+
+</div>
+

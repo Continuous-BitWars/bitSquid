@@ -1,6 +1,5 @@
 .video-controls {
-  background: #343a40; /* Bootstrap dark background color */
-  border: 1px solid #495057; /* Darker border to match bg-dark */
+  background: #343a40;
   border-radius: 8px;
   padding: 8px;
 
@@ -8,18 +7,18 @@
   .right-controls {
     display: flex;
     align-items: center;
-    gap: 10px; /* Add spacing between elements */
+    gap: 10px;
   }
 
   .playback-controls .btn,
   .right-controls .btn,
   .quality-select {
-    font-size: 18px; /* Slightly smaller for better aesthetics */
+    font-size: 18px;
     height: 40px;
-    background: #343a40; /* Bootstrap secondary color */
+    background: #343a40;
     border: none;
     border-radius: 4px;
-    color: #f8f9fa; /* Light text color for contrast */
+    color: #f8f9fa;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -28,20 +27,24 @@
 
   .playback-controls .btn:hover,
   .right-controls .btn:hover {
-    background: #495057; /* Darker shade for hover effect */
-    color: #ffffff; /* White text on hover */
-    transform: scale(1.05); /* Slight zoom effect */
+    background: #495057;
+    color: #ffffff;
+    transform: scale(1.05);
   }
 
   .tick-display {
     font-size: 14px;
-    color: #adb5bd; /* Muted text color */
+    color: #adb5bd;
     width: 70px;
     text-align: center;
     padding: 4px;
     border: 1px solid #6c757d;
     border-radius: 4px;
-    background: #212529; /* Darker background */
+    background: #212529;
+  }
+
+  .tick-display:hover {
+    background: #000000;
   }
 
   .quality-select {
@@ -49,7 +52,7 @@
     height: 40px;
     border: 1px solid #495057;
     border-radius: 4px;
-    background: #212529; /* Matches dark mode */
+    background: #212529;
     padding: 4px 12px;
     font-size: 16px;
     color: #f8f9fa;
@@ -58,11 +61,10 @@
 
   .quality-select:hover,
   .quality-select:focus {
-    border-color: #17a2b8; /* Bootstrap info color */
+    border-color: #f8f9fa;
     background: #000000;
   }
 
-  /* Responsive adjustments for smaller screens */
   @media (max-width: 767.98px) {
     .playback-controls,
     .right-controls {

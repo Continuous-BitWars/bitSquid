@@ -1,0 +1,20 @@
+<div class="container">
+  <ng-container *ngIf="map">
+    <div class="league-card w-100">
+      <div class="header">
+        <h2>{{ map.name }}</h2>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat">
+          <span class="icon">👥</span>
+          <span>{{ map.max_player_count }} Players</span>
+        </div>
+      </div>
+
+      <div *ngIf="json">
+        <textarea readonly="readonly" class="w-100" rows="30">{{loadJSON(json.value) | json}}</textarea>
+      </div>
+    </div>
+  </ng-container>
+</div>

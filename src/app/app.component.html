@@ -1,15 +1,51 @@
-<!--<app-dashboard></app-dashboard>
+<!---
+<app-dashboard></app-dashboard>
 <app-video-controls></app-video-controls>
 
 <app-live-viewer></app-live-viewer>
 
-<div *ngIf="gameTickService.currentTick() != undefined" style="width: 500px; float: left">
+
+<div *ngIf="gameTickService.currentTick() != undefined">
   <app-base-information *ngFor="let base of gameTickService.currentTick()?.bases"
                         [base]="base"
                         [player]="getPlayerByID(base.player)"
                         [baseLevel]="getBaseLevelByLevel(base.level)">
   </app-base-information>
 </div>
+
+<div *ngIf="gameTickService.currentTick() != undefined">
+  <app-game-action *ngFor="let action of gameTickService.currentTick()?.actions"
+                   [action]="action"
+                   [baseDest]="getBaseByID(action.dest)"
+                   [baseSrc]="getBaseByID(action.src)"
+                   [playerDest]="getPlayerFromBaseByID(action.dest)"
+                   [playerSrc]="getPlayerFromBaseByID(action.src)"
+                   [player]="getPlayerByID(action.player)">
+
+  </app-game-action>
+</div>
+-->
+
+
+<div style="width: 100dvw; height: 100dvh; display: flex; flex-direction: column">
+  <nav class="navbar navbar-dark bg-dark sticky-top w-100">
+    <div class="w-100">
+      <app-navbar></app-navbar>
+    </div>
+  </nav>
+
+  <div class="flex-grow-1 overflow-auto w-100">
+    <div class="w-100">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <div class="bg-dark text-white text-center py-2 sticky-bottom w-100">
+    <app-video-controls></app-video-controls>
+  </div>
+</div>
+
+<!--
 <app-game-action>
 </app-game-action>
 <div *ngIf="gameTickService.currentTick() != undefined" style="width: 500px; float: left; margin-left: 10px;">
@@ -24,20 +60,3 @@
   </app-game-action>
 </div>
 !-->
-<div style="width: 100dvw; height: 100dvh; display: flex; flex-direction: column">
-  <nav class="navbar navbar-dark bg-dark sticky-top w-100">
-    <div class="w-100">
-      <app-navbar></app-navbar>
-    </div>
-  </nav>
-
-  <div class="flex-grow-1 overflow-auto w-100">
-    <div class="w-100">
-      <app-page-games></app-page-games>
-    </div>
-  </div>
-
-  <div class="bg-dark text-white text-center py-2 sticky-bottom w-100">
-    <app-video-controls></app-video-controls>
-  </div>
-</div>

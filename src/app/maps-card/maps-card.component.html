@@ -1,0 +1,16 @@
+<div class="league-card" [routerLink]="['/maps', map.id]">
+  <div class="header">
+    <h2>{{ map.name }}</h2>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat">
+      <span class="icon">👥</span>
+      <span>{{ map.max_player_count }} Players</span>
+    </div>
+  </div>
+
+  <button class="view-button">
+    View Details
+  </button>
+</div>

@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center sticky-top">
+  <div class="status-tabs">
+    <button
+      class="status-tab"
+      [class.active]="status === 'live'"
+      (click)="selectStatus('live')"
+    >
+      Live Games
+    </button>
+    <button
+      class="status-tab"
+      [class.active]="status === 'pending'"
+      (click)="selectStatus('pending')"
+    >
+      Pending
+    </button>
+    <button
+      class="status-tab"
+      [class.active]="status === 'done'"
+      (click)="selectStatus('done')"
+    >
+      Completed
+    </button>
+  </div>
+</div>
+
+<div class="row g-4 mt-2">
+  <div class="col-md-6" *ngFor="let game of filteredGames">
+    <div class="game-card" [routerLink]="['/games', game.id]">
+      <div class="game-header">
+        <h3 class="game-title">Game {{ game.name }}</h3>
+        <span class="game-status" [class]="'status-' + game.status">
+            {{ game.status}}
+          </span>
+      </div>
+      <div class="game-info">
+        <i class="bi bi-people-fill"></i>
+        <span>{{ game.players.length }} Players</span>
+      </div>
+      <div class="game-info">
+        <i class="bi bi-map-fill"></i>
+        <span>{{ game.game_map.name}}</span>
+      </div>
+      <div class="game-info">
+        <i class="bi bi-clock-fill"></i>
+        <span>{{ game.round_number }} ({{game.game_options.time_between_ticks}}s)</span>
+      </div>
+      <button class="btn btn-details">
+        View Game
+      </button>
+    </div>
+  </div>
+</div>
+

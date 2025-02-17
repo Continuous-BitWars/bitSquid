@@ -1,58 +1,34 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
-  <div class="container-fluid">
-    <!-- Logo and Brand -->
-    <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="assets/squid.png" alt="Logo" class="img-fluid" style="width: 50px;">
-    </a>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container">
 
-    <!-- Toggle button for mobile view -->
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <!-- Collapsible content -->
+    <!-- Navbar Links (Centered) -->
     <div class="collapse navbar-collapse" id="navbarNav">
-      <!-- Center-aligned menu items -->
-      <ul class="navbar-nav mx-auto align-items-center">
+      <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">
-            <i class="fas fa-gamepad me-2"></i>Games
+          <a class="nav-link" routerLink="/games" routerLinkActive="active">
+            <i class="bi bi-controller"></i> Games
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">
-            <i class="fas fa-trophy me-2"></i>Leagues
+          <a class="nav-link" routerLink="/leagues" routerLinkActive="active">
+            <i class="bi bi-trophy"></i> Leagues
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">
-            <i class="fas fa-user me-2"></i>Players
+          <a class="nav-link" routerLink="/players" routerLinkActive="active">
+            <i class="bi bi-people"></i> Players
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">
-            <i class="fas fa-map me-2"></i>Maps
+          <a class="nav-link" routerLink="/maps" routerLinkActive="active">
+            <i class="bi bi-map"></i> Maps
           </a>
         </li>
       </ul>
-
-      <!-- Right side (Broadcast and Dark mode icons) -->
-      <div class="d-flex align-items-center">
-        <a class="text-light me-4" href="#" title="Broadcast">
-          <i class="fas fa-broadcast-tower fs-4"></i>
-        </a>
-        <a class="text-light" href="#" title="Toggle Dark Mode">
-          <i class="fas fa-moon fs-4"></i>
-        </a>
-      </div>
     </div>
   </div>
 </nav>

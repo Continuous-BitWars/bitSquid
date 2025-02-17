@@ -1,0 +1,59 @@
+.league-card {
+  background: rgba(35, 38, 45, 0.8);
+  border-radius: 16px;
+  padding: 1.5rem;
+  color: white;
+  backdrop-filter: blur(10px);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #a0a0a0;
+  font-size: 0.95rem;
+}
+
+.icon {
+  color: #5b9dff;
+  font-size: 1.1rem;
+}
+
+.view-button {
+  width: 100%;
+  background: #5b9dff;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.view-button:hover {
+  background: #4a8eff;
+  transform: translateY(-1px);
+}

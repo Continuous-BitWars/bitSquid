@@ -1,0 +1,27 @@
+<div class="league-card">
+  <div class="league-header">
+    <h3>{{ league.name }}</h3>
+    <span class="status" [class]="'status-' + league.status">
+          {{ league.status | titlecase }}
+        </span>
+  </div>
+
+  <div class="league-info">
+    <div class="info-item">
+      <i class="bi bi-joystick"></i>
+      <span>{{ league.game_count }} Games</span>
+    </div>
+    <div class="info-item">
+      <i class="bi bi-clock-history"></i>
+      <span>{{ league.default_time_between_ticks }}s Tick Time</span>
+    </div>
+    <div class="info-item">
+      <i class="bi bi-people-fill"></i>
+      <span>{{ league.players.length }} Players</span>
+    </div>
+    <div class="info-item">
+      <i class="bi bi-diagram-3-fill"></i>
+      <span>{{ league.parallel_games }} Parallel Games</span>
+    </div>
+  </div>
+</div>

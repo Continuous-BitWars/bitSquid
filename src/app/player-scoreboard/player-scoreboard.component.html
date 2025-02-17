@@ -1,1 +1,44 @@
-<p>player-scoreboard works!</p>
+<div class="container">
+  <div class="table-container">
+    <table class="scores-table">
+      <thead>
+      <tr>
+        <th>RANK</th>
+        <th>PLAYER ID</th>
+        <th>PLAYER NAME</th>
+        <th>COLOR</th>
+        <th>SCORE</th>
+        <th>🏆</th>
+        <th>🥈</th>
+        <th>🥉</th>
+        <th>🎮</th>
+        <th>🏃</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let score of scores; let i = index" [routerLink]="['/players', score.player.id]">
+        <td class="rank-cell">
+          <span class="rank" [style.color]="i < 3 ? '#60a5fa' : '#94a3b8'">{{ i + 1 }}</span>
+          <i *ngIf="i === 0" class="bi bi-trophy-fill trophy-gold"></i>
+          <i *ngIf="i === 1" class="bi bi-trophy-fill trophy-silver"></i>
+          <i *ngIf="i === 2" class="bi bi-trophy-fill trophy-bronze"></i>
+        </td>
+        <td class="id-cell">{{ score.player.id }}</td>
+        <td class="player-cell">
+          {{ score.player.name }}
+        </td>
+        <td class="color-cell">
+          <span class="color-box" [style.background-color]="score.player.color"></span>
+          {{ score.player.color }}
+        </td>
+        <td class="score-cell">{{ score.score }}</td>
+        <td class="trophy-cell">{{ score.wins_by_place['1'] || 0 }}</td>
+        <td class="trophy-cell">{{ score.wins_by_place['2'] || 0 }}</td>
+        <td class="trophy-cell">{{ score.wins_by_place['3'] || 0 }}</td>
+        <td class="trophy-cell">{{ score.wins_by_place['4'] || 0 }}</td>
+        <td class="open-games-cell">{{ score.open_games_count }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -33,4 +33,5 @@ export class GameActionComponent {
       ? `${this.action.progress.traveled}/${this.action.progress.distance}`
       : '0/0';
   }
+  
 }

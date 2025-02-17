@@ -1,0 +1,145 @@
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
+
+.container {
+  max-width: 1400px;
+  padding: 2rem 1rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+  }
+}
+
+.table-container {
+  background: #1a2332;
+  border-radius: 8px;
+  overflow-x: auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.scores-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 1200px;
+
+  th {
+    background: #7dd3fc;
+    color: #0c4a6e;
+    padding: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+    font-size: 0.875rem;
+    white-space: nowrap;
+  }
+
+  tr {
+    &:nth-child(even) {
+      background: rgba(#1e293b, 0.5);
+    }
+
+    &:hover {
+      background: #2d3b4f;
+      cursor: pointer;
+    }
+  }
+
+  td {
+    padding: 0.75rem;
+    color: #e2e8f0;
+    text-align: center;
+    font-size: 0.875rem;
+    border-top: 1px solid rgba(#334155, 0.5);
+  }
+
+  .rank-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    .rank {
+      font-weight: 500;
+    }
+
+    i {
+      font-size: 1rem;
+    }
+  }
+
+  .id-cell {
+    color: #94a3b8;
+    font-family: monospace;
+  }
+
+  .player-cell {
+    color: #e2e8f0;
+    font-weight: 500;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+  }
+
+  .color-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: monospace;
+    color: #94a3b8;
+
+    .color-box {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .score-cell {
+    font-weight: 600;
+    color: #7dd3fc;
+  }
+
+  .trophy-cell {
+    color: #94a3b8;
+    font-weight: 500;
+  }
+
+  .death-cell {
+    color: #ef4444;
+    font-weight: 500;
+  }
+
+  .trophy-gold {
+    color: #fbbf24;
+  }
+
+  .trophy-silver {
+    color: #94a3b8;
+  }
+
+  .trophy-bronze {
+    color: #b45309;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header {
+    margin-bottom: 1.5rem;
+  }
+}
